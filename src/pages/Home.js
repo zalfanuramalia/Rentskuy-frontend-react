@@ -38,11 +38,11 @@ export default class Home extends Component {
         <header className="header-home">
           <div className="content-home">
             <div className="header-pic">
-              <h1 className="text-1">Explore and Trave</h1>
+              <h1 className="text-1">Explore and Travel</h1>
               <h1 className="text-2"> Vehicle Finder </h1>
               <div><i className="fa-solid fa-horizontal-rule"></i></div>
             </div>
-            <form className='mt-5'>
+            <form className='container mt-5'>
               <div className="row type-1">
                 <div className="my-2 col-3 select-1 position-relative">
                   <select className="form-select" aria-label="Default select example">
@@ -53,7 +53,7 @@ export default class Home extends Component {
                   </select>
                   <i class="fa-solid fa-chevron-down"></i>
                 </div>
-                <div className="my-2 col-3 select-2 position-relative">
+                <div className="my-2 col-3 select-2 position-absolute">
                   <select className="form-select" aria-label="Default select example">
                     <option selected>Type</option>
                     <option value="1">Cars</option>
@@ -73,7 +73,7 @@ export default class Home extends Component {
                   </select>
                   <i class="fa-solid fa-chevron-down"></i>
                 </div>
-                <div className="my-2 col-3 select-2 position-relative">
+                <div className="my-2 col-3 select-2 position-absolute">
                   <select className="form-select" aria-label="Default select example" id="datepicker">
                     <option selected>Date</option>
                   </select>
@@ -84,7 +84,7 @@ export default class Home extends Component {
             </form>
           </div>
         </header>
-        <footer>
+        <footer className='container-md-fluid control'>
           <div className="texts d-flex justify-content-between">
             <p className="hei">Popular in Town </p>
             <p className="hai">view all <i class="fa-solid fa-chevron-right"> </i></p> 
@@ -121,7 +121,7 @@ export default class Home extends Component {
           <div className="texts2">
             <p>Testimonials</p>
           </div>
-          <div className="row">
+          <div className="descOne row">
             <div className="col flex-row-reverse">
               <div className="stars text-center text-md-start d-flex justify-content-justify">
                 <FaStar />
