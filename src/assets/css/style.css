@@ -414,6 +414,10 @@ button {
     width: 50%;
     height: auto;
   }
+
+  .footer {
+    max-width: 100%;
+  }
 }
 
 .header-home {
@@ -475,7 +479,7 @@ button {
   border: 0.8px solid #AFB0B9;
   box-sizing: border-box;
   border-radius: 6px;
-  margin-left: 121px;
+  margin-left: 10px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   font-size: 18px;
@@ -505,6 +509,7 @@ button {
   font-weight: bold;
   font-size: 18px;
   line-height: 32px;
+  margin-left: 265px;
 }
 
 .header-home .content-home form .type-1 .select-2 i {
@@ -522,7 +527,7 @@ button {
   border: 0.8px solid #AFB0B9;
   box-sizing: border-box;
   border-radius: 6px;
-  margin-left: 121px;
+  margin-left: 10px;
   margin-top: 465px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
@@ -550,6 +555,7 @@ button {
   font-weight: bold;
   font-size: 18px;
   line-height: 32px;
+  margin-left: 265px;
 }
 
 .header-home .content-home form .type-2 .select-2 i {
@@ -566,7 +572,7 @@ button {
   border: 0.8px solid #AFB0B9;
   background: #FFCD61;
   border-radius: 8px;
-  margin-left: 121px;
+  margin-left: 10px;
   margin-top: 570px;
   font-weight: 900;
   font-size: 17px;
@@ -651,7 +657,7 @@ footer .text-pic .img-1 .elementTwo {
   font-size: 48px;
 }
 
-footer .text-pic .element-3 {
+/* footer .text-pic .element-3 {
   position: absolute;
   bottom: 0;
   left: 400px;
@@ -663,7 +669,7 @@ footer .text-pic .element-3 {
   border-radius: 16px 0px 0px 0px;
   width: 132px;
   height: 60px;
-}
+} */
 
 footer div.texts2 {
   font-family: Playfair Display;
@@ -672,6 +678,10 @@ footer div.texts2 {
   line-height: 50px;
   margin-top: 50px;
   margin-left: 139px;
+}
+
+footer .descOne {
+  width: 100%;
 }
 
 footer .stars {
@@ -723,6 +733,10 @@ footer .s-text p.d-text-1 {
   width: 124px;
   height: 48px;
   font-weight: 400;
+}
+
+footer .name {
+  text-align: center;
 }
 
 .link-social svg {
