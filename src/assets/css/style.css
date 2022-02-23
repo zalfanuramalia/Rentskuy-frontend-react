@@ -421,16 +421,16 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  width: 1550px;
-  height: 763px;
+  width: 100%;
+  height: 100%;
 }
 
 .header-home .content-home {
   background-color: rgba(0, 0, 0, 0.3);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 1550px;
-  height: 763px;
+  width: 100%;
+  height: 100%;
   color: white;
 }
 
@@ -480,7 +480,7 @@ button {
   font-weight: bold;
   font-size: 18px;
   line-height: 32px;
-  top: 400px;
+  top: 420px;
 }
 
 .header-home .content-home form .type-1 .select-1 i {
@@ -500,7 +500,7 @@ button {
   border: 0.8px solid #AFB0B9;
   box-sizing: border-box;
   border-radius: 6px;
-  top: 400px;
+  top: 420px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   font-size: 18px;
@@ -633,19 +633,18 @@ footer div.text-pic {
 }
 
 
-footer .text-pic .element {
+footer .text-pic .img-1 .element {
   position: absolute;
   bottom: 0;
   right: 0;
-  left: 450px;
-  top: 175px;
+  left: 660px;
 }
 
-footer .text-pic .element-2 {
-  position: absolute;
+footer .text-pic .img-1 .elementTwo {
+  position: relative;
   bottom: 0;
-  left: 80px;
-  top: 706px;
+  left: 200px;
+  top: 900px;
   color: #FDD08D;
   width: 31.72px;
   height: 31.65px;
@@ -707,7 +706,7 @@ footer .s-text p.s-text-1 {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
   line-height: 48px;
-  margin-left: 144px;
+  margin-left: 131px;
   margin-top: 40px;
   width: 183px;
   height: 48px;
@@ -720,7 +719,7 @@ footer .s-text p.d-text-1 {
   color: rgba(57, 57, 57, 0.85);
   font-size: 18px;
   line-height: 48px;
-  margin-left: 144px;
+  margin-left: 131px;
   width: 124px;
   height: 48px;
   font-weight: 400;
