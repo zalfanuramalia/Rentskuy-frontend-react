@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import logo from '../assets/images/logo.png'
 import { Link } from 'react-router-dom'
 import people from '../assets/images/people-2.png'
+import { FaCircle } from 'react-icons/fa'
+import { GoMail } from 'react-icons/go'
 
 export default class Navbar extends Component {
   render() {
@@ -31,9 +33,11 @@ export default class Navbar extends Component {
           </ul>
           <div className="toggled-action d-inline-block position-relative">
             <div className="d-inline-block position-relative mail">
-              <img src="./assets/images/message.png" alt="Email" />
-              <span><i className="fa-solid fa-circle-1"></i></span>
-              <span><i className="fa-solid fa-1"></i></span>
+              <span className='position-relative goMail'>
+                <GoMail className='mail-1'/>
+                <FaCircle color='#FE6696' className='circle'/>
+                <p className='val'>1</p>
+              </span>              
               <img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" />
             </div>
           </div>
