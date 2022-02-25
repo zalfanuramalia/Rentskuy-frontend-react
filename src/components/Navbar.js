@@ -1,39 +1,45 @@
 import React, { Component } from 'react'
 import logo from '../assets/images/logo.png'
+import { Link } from 'react-router-dom'
+import people from '../assets/images/people-2.png'
 
 export default class Navbar extends Component {
   render() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-        <a class="navbar-brand" href="./Home.js">
-          <img src={logo} alt="logo" />
+      <nav className="navbar navbar-expand-lg navbar-light">
+      <div className="container">
+        <a className="navbar-brand" href="Home">
+          <img src={logo} alt="logo" className='logo'/>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./vehicle-type.html">Vehicle Type</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./history.html">History</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Home">About</a>
-                </li>
-            </ul>
-        <div class="toggled-action">
-          <button class="button-outline mx-3" > <a href="./login.html">Login</a></button>
-          <button class="button-filled" > <a href="./register.html">Register</a> </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link to='/Home' className="nav-link active" aria-current="page">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to='/VehicleType' className="nav-link">Vehicle Type</Link>
+            </li>
+            <li className="nav-item">
+              <Link to='/History' className="nav-link">History</Link>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/Home">About</a>
+            </li>
+          </ul>
+          <div className="toggled-action d-inline-block position-relative">
+            <div className="d-inline-block position-relative mail">
+              <img src="./assets/images/message.png" alt="Email" />
+              <span><i className="fa-solid fa-circle-1"></i></span>
+              <span><i className="fa-solid fa-1"></i></span>
+              <img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
     )
   }
 }
