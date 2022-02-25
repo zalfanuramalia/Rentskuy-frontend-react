@@ -1,5 +1,16 @@
 body {
   font-family: 'Nunito', sans-serif;
+  color: #FE6694;
+}
+
+.img-thumbnail {
+  width: 54.62px;
+  height: 54.62px;
+}
+
+.logo {
+  width: 54.62px;
+  height: 54.62px;
 }
 
 /* style.css forgot-password.html */
@@ -71,7 +82,7 @@ body {
   border-radius: 10px;
   text-align: center;
   font-size: 24px;
-  background-color: #FFCD61;
+  background-color: #FE6694;
   color: black;
   font-weight: 900;
   border: none;
@@ -411,7 +422,7 @@ button {
   }
 
   .header-home .content-home .header-pic h1.text-1 {
-    width: 50%;
+    width: 100%;
     height: auto;
   }
 
@@ -439,7 +450,7 @@ button {
 }
 
 .header-home .content-home .header-pic h1.text-1 {
-  position: absolute;
+  position: relative;
   color: white;
   font-size: 64px;
   font-family: 'Playfair Display', serif;
@@ -484,12 +495,11 @@ button {
   font-weight: bold;
   font-size: 18px;
   line-height: 32px;
-  top: 420px;
+  bottom: 200px;
 }
 
 .header-home .content-home form .type-1 .select-1 i {
   margin-left: 188px;
-  top: 360px;
   bottom: 200px;
   position: relative;
   color: #4A4C53;
@@ -1083,6 +1093,27 @@ div.login .text2 .link-social {
     display: grid;
     width: 100%;
   }
+}
+
+.circle {
+  position: absolute;
+  bottom: 14px;
+  right: 36px;
+  width: 20px;
+  height: 20px;
+}
+
+p.val {
+  position: absolute;
+  color: white;
+  bottom: -3px;
+  right: 41px;
+  font-size: 15px;
+}
+
+.mail-1 {
+  color: #FE6694;
+  font-size: 50px;
 }
 
 .tombol input {
