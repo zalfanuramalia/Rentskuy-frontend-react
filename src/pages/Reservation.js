@@ -21,37 +21,37 @@ export default class Reservation extends Component {
     return (
       <>
         <Navbar />
-        <div class="payment">
-        <div class="reserve">
+        <div className="payment">
+        <div className="reserve">
           <a href="/ViewMoreDetail"><FaChevronLeft /></a> 
           <span>Reservation</span>
         </div>
-        <div class="container-fluid g-0">
-          <div class="row g-0">
-            <div class="col">
+        <div className="container-fluid g-0">
+          <div className="row g-0">
+            <div className="col">
               <img src="./assets/images/fixie-2.png" alt="Fixie" />
             </div>
-            <div class="col info">
+            <div className="col info">
               <div>
-                <h1 class="text-1">Fixie - Gray Only </h1>
-                <h1 class="text-2"> Yogyakarta</h1>
-                <p class="text-3">No Prepayment</p>
-                <div class="qty ">
-                    <button class="minus " onClick={this.changeValue}>-</button>
-                    <div type="number" class="count" name="qty">{this.state.value}</div>
-                    <button class="plus " onClick={this.changeValue}>+</button>
+                <h1 className="text-1">Fixie - Gray Only </h1>
+                <h1 className="text-2"> Yogyakarta</h1>
+                <p className="text-3">No Prepayment</p>
+                <div className="qty ">
+                    <button className="minus " onClick={this.changeValue}>-</button>
+                    <div type="number" className="count" name="qty">{this.state.value}</div>
+                    <button className="plus " onClick={this.changeValue}>+</button>
                 </div>
-                <div class="text-4">
+                <div className="text-4">
                   <p>Reservation Date :</p>
                 </div>
-                <div class="op-1">
-                  <div class="date" id="datepicker">
+                <div className="op-1">
+                  <div className="date" id="datepicker">
                     <input type="text" class="form-control pick" placeholder="Select date" />
-                    <span class="input-group-append"></span>
+                    <span className="input-group-append"></span>
                   </div>       
                 </div>
-                <div class="op-2">
-                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <div className="op-2">
+                  <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     <option selected>1 Day</option>
                     <option value="1">2 Day</option>
                     <option value="2">3 Day</option>
@@ -63,7 +63,7 @@ export default class Reservation extends Component {
             </div>
           </div>
         </div>
-        <div class="pay-1">
+        <div className="pay-1">
           <button>Pay now : Rp. 178.000</button>
         </div>
       </div>

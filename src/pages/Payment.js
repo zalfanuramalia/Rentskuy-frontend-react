@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 
 export default class Payment extends Component {
   render() {
     return (
       <>
+      <Navbar />
         <div className="payment">
     <div className="reserve">
       <i className="fa-solid fa-chevron-left"></i>
@@ -42,7 +45,7 @@ export default class Payment extends Component {
         <p className="get-3">Total : 178.000</p>
       </div>
       <div className="d-flex res-6">
-        <p classame="id-1">Identity :</p>
+        <p className="id-1">Identity :</p>
         <p className="id-2">Samantha Doe (+6290987682) <br/> samanthadoe@mail.com</p>
       </div>
     </div>
@@ -65,12 +68,13 @@ export default class Payment extends Component {
       </div>
     </div>
   </div>
-  <div class=" pay">
+  <div className=" pay">
     <button className="d-flex" >
       <p className="fin">Finish payment :</p>
       <p className="time">59:30</p> 
     </button>
   </div>
+  <Footer />
       </> 
     )
   }
