@@ -9,7 +9,7 @@ export default class Footer extends Component {
         <div class="row text">
           <div class="col">
             <div>
-              <img src={logo} alt="Logo" />
+              <img src={logo} alt="Logo" className='logo' />
             </div>
             <div class="description">Plan and book your perfect trip with expert advice, travel tips for vehicle information from us</div>
             <div>©2020 Angkasa Vehicle Rental. All rights reserved</div>
