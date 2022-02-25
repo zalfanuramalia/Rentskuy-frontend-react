@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../assets/images/logo.png'
-
+import { Link } from 'react-router-dom'
 
 export default class NavbarHome extends Component {
     render() {
@@ -19,7 +19,7 @@ export default class NavbarHome extends Component {
                   <a className="nav-link active" aria-current="page" href="./home.html">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="./vehicle-type.html">Vehicle Type</a>
+                  <Link to='/VehicleType' className="nav-link">Vehicle Type</Link>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="./history.html">History</a>
