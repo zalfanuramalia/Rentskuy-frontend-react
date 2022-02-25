@@ -33,7 +33,7 @@ export default class App extends Component {
             <Route path='login' element={<Login />} />
             <Route path='vehicleType' element={<VehicleType />} />
             <Route path='viewDetail' element={<ViewMoreDetail />} />
-            <Route path='detail' element={<Detail />} />
+            <Route path='vehicles/:id' element={<Detail />} />
             <Route path='notFound' element={<NotFound />} />
             <Route path='register' element={<Register />} />
             <Route path='profil' element={<Profil />} />
