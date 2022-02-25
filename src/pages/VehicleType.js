@@ -136,12 +136,12 @@ export const VehicleType = () => {
         <div className='col-md-12'>
           <form id='search' onSubmit={onSearch} className="input-group" >
             <input name='search' type="search" className="form-control" placeholder="Search vehicle" aria-label="Search" aria-describedby="search-addon" />
-            <select name='type' className='form-control'>
+            {/* <select name='type' className='form-control'>
               <option value='' style={{display: 'none'}}>Type</option>
               <option value="cars">Car</option>
               <option value="motorbike">Motorcycle</option>
               <option value="bike">Bike</option>
-            </select>
+            </select> */}
             <button type='submit' className='btn btn-primary'>Search</button>
           </form>
           {errorMsg!==null&&
@@ -170,6 +170,7 @@ export const VehicleType = () => {
       <div className="image container">
         <div className="row">
           {popular.map((data2, idx)=>{
+            console.log(data2.image)
             return(
               <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
@@ -200,7 +201,7 @@ export const VehicleType = () => {
       </div>
       <div className="image container">
         <div className="row">
-          {car.map((data, idx)=>{
+          {car.map((data, idt)=>{
             return(
               <div key={String(data.id)} onClick={()=>goToDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
@@ -231,7 +232,7 @@ export const VehicleType = () => {
       </div>
       <div className="image container">
         <div className="row">
-          {motorbike.map((data1, idx)=>{
+          {motorbike.map((data1, idu)=>{
             return(
               <div key={String(data1.id)} onClick={()=>goToDetail(data1.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
