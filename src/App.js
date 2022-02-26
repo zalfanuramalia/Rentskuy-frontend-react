@@ -11,9 +11,12 @@ import Payment from './pages/Payment'
 import Profil from './pages/Profil'
 import ForgotPassword from './pages/ForgotPassword'
 import Register from './pages/Register'
+import ViewMoreCar from './pages/ViewMoreCar'
+import ViewMoreMotorbike from './pages/ViewMoreMotorbike'
+import History from './pages/History'
+import ViewMoreBike from './pages/ViewMoreBike'
 import { unstable_HistoryRouter as HistoryRouter, Route, Routes } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
-
 export default class App extends Component {
     componentDidMount(){
       console.log(this.props)
@@ -40,6 +43,10 @@ export default class App extends Component {
             <Route path='reservation' element={<Reservation />} />
             <Route path='payment' element={<Payment />} />
             <Route path='forgotPassword' element={<ForgotPassword />} />
+            <Route path='viewMoreCar' element={<ViewMoreCar />} />
+            <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
+            <Route path='history' element={<History />} />
+            <Route path='viewMoreBike' element={<ViewMoreBike />} />
           </Routes>
       </HistoryRouter>
       {/* <BrowserRouter>
