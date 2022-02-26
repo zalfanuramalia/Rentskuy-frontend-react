@@ -1,6 +1,6 @@
 body {
   font-family: 'Nunito', sans-serif;
-  color: #FE6694;
+  color: #424242;
 }
 
 .img-thumbnail {
@@ -9,8 +9,118 @@ body {
 }
 
 .logo {
-  width: 54.62px;
-  height: 54.62px;
+  width: 80px;
+  height: 80px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.vehicles {
+  margin-left: 108px;
+}
+
+/* style.css detail.html */
+
+.back {
+  width: 43px;
+  height: 28px;
+  margin-left: 120px;
+  margin-top: 50px;
+}
+
+.back p {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.vehicles .city h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 25px;
+}
+
+.vehicles .city h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 25px;
+  margin-top: 15px;
+}
+
+.vehicles .main-image {
+  width: 500px;
+  height: 350px;
+}
+
+.vehicles .vehicles-details {
+  margin-top: 50px;
+}
+
+.vehicles .available {
+  color: #7f99b1;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+  font-family: 'Nunito', sans-serif;
+  margin-top: 25px;
+}
+
+.vehicles .pre {
+  color: #ab7e36;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'Nunito', sans-serif;
+  margin-top: 5px;
+}
+
+.vehicles .about {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.vehicles .price {
+  margin-top: 20px;
+  margin-left: 490px;
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 25px;
+}
+
+.detail-vehicle .button {
+  margin-left: 150px;
+}
+
+.detail-vehicle .button .button-chat {
+  width: 443px;
+  margin-top: 70px;
+  height: 70px;
+  border-radius: 10px;
+  background-color: #2f588b;
+}
+
+.detail-vehicle .button .submit-button {
+  margin-left: 35px;
+  margin-top: 70px;
+  width: 443px;
+  height: 70px;
+  border-radius: 10px;
+  background-color: #7f99b1
+}
+
+.detail-vehicle .button .button-like {
+  margin-left: 35px;
+  margin-top: 70px;
+  width: 225px;
+  height: 70px;
+  border-radius: 10px;
+  background-color: white;
+  color: #2f588b;
 }
 
 /* style.css forgot-password.html */
@@ -367,11 +477,11 @@ button {
 
 .button-outline {
   background-color: transparent;
-  border: 1px solid #FFCD61;
+  border: 1px solid #616161;
 }
 
 .button-filled {
-  background-color: #FFCD61;
+  background-color: #616161;
   border: unset;
 }
 
@@ -421,11 +531,6 @@ button {
     max-width: 100%;
   }
 
-  .header-home .content-home .header-pic h1.text-1 {
-    width: 100%;
-    height: auto;
-  }
-
   .footer {
     max-width: 100%;
   }
@@ -436,8 +541,8 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 1519px;
+  height: 763px;
 }
 
 .header-home .content-home {
@@ -449,8 +554,9 @@ button {
   color: white;
 }
 
+
 .header-home .content-home .header-pic h1.text-1 {
-  position: relative;
+  position: absolute;
   color: white;
   font-size: 64px;
   font-family: 'Playfair Display', serif;
@@ -486,10 +592,11 @@ button {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: rgba(255, 255, 255, 0.5);
+  background: #757575;
   border: 0.8px solid #AFB0B9;
   box-sizing: border-box;
   border-radius: 6px;
+  top: 420px;
   margin-left: 10px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
@@ -510,7 +617,7 @@ button {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: rgba(255, 255, 255, 0.5);
+  background: #757575;
   border: 0.8px solid #AFB0B9;
   box-sizing: border-box;
   border-radius: 6px;
@@ -533,7 +640,7 @@ button {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: rgba(255, 255, 255, 0.5);
+  background: #757575;
   border: 0.8px solid #AFB0B9;
   box-sizing: border-box;
   border-radius: 6px;
@@ -556,7 +663,7 @@ button {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: rgba(255, 255, 255, 0.5);
+  background: #757575;
   border: 0.8px solid #AFB0B9;
   box-sizing: border-box;
   border-radius: 6px;
@@ -580,7 +687,7 @@ button {
   width: 180px;
   height: 52.01px;
   border: 0.8px solid #AFB0B9;
-  background: #FFCD61;
+  background: #424242;
   border-radius: 8px;
   margin-left: 10px;
   margin-top: 570px;
@@ -608,8 +715,8 @@ footer p.hei {
   font-size: 36px;
 }
 
-footer p.hai {
-  color: #FB8F1D;
+footer .hai {
+  color: #FE6694;
   font-size: 17px;
   margin-top: 82px;
   line-height: 50px;
@@ -837,7 +944,8 @@ button {
 
 .button-outline {
   background-color: transparent;
-  border: 1px solid #FFCD61;
+  border: 1px solid #616161;
+  color: #A67C00;
 
 }
 
@@ -847,8 +955,9 @@ button {
 }
 
 .button-filled {
-  background-color: #FFCD61;
+  background-color: #616161;
   border: unset;
+  color: white;
 }
 
 .button-dark {
@@ -1112,7 +1221,7 @@ p.val {
 }
 
 .mail-1 {
-  color: #FE6694;
+  color: #9e9e9e;
   font-size: 50px;
 }
 
@@ -1182,7 +1291,7 @@ p.val {
 
 .list .texts .hai {
   margin-top: 20px;
-  color: #FB8F1D;
+  color: #616161;
   font-size: 17px;
 }
 
