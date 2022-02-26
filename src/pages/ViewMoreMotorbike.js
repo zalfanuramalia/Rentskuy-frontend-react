@@ -4,75 +4,75 @@ import Footer from '../components/Footer'
 import {default as axios} from 'axios'
 import { useNavigate, useSearchParams} from 'react-router-dom'
 
-export const ViewMoreDetail = () => {
-  const [popular, setPopular] = useState([])
-  const [page, setPage] = useState({})
+export const ViewMoreMotorbike = () => {
+    const [motorbike, setMotorbike] = useState([])
+  const [pages, setPages] = useState({})
   const [errorMsg, setErrorMsg] = useState(null)
 
   const navigate = useNavigate()
   let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(()=>{
+    console.log(setMotorbike)
     const brand = searchParams.get('brand')
-
+    
     if(brand){
-        const url = (brand)=> `http://localhost:8080/history/vehicles?search=${brand}`
+        const url1 = (brand)=> `http://localhost:8080/vehicles/category/2?search=${brand}`
         document.getElementById('search').elements['search'].value = brand
-        getNextData(url(brand), true)
+        getToData(url1(brand), true)
     }else{
-        getPopular()
+        getCar()
     }
   },[])
 
-  const getPopular = async () => {
-    const {data: data2} = await axios.get ('http://localhost:8080/history/vehicles?limit=50')
-    console.log(data2)
-    setPopular(data2.result)
+  const getCar = async () => {
+    const {data} = await axios.get ('http://localhost:8080/vehicles/category/2?limit=50')
+    console.log(data)
+    setMotorbike(data.results)
   }
 
-  const getNextData = async (url, replace = false) => {
+  const getToData = async (url1, replace = false) => {
     try{
         setErrorMsg(null)
-        const {data} = await axios.get(url)
+        const {data} = await axios.get(url1)
         if(replace){
-            setPopular(data.result)
+            setMotorbike(data.results)
         }else{
-            setPopular([
-                ...popular,
-                ...data.result
+            setMotorbike([
+                ...motorbike,
+                ...data.results
             ])
         }
-        setPage(data.info)
+        setPages(data.info)
     }catch(e){
         if(e.message.includes('404')){
             setErrorMsg('Data not found!')
-            setPopular([])
-            setPage({
+            setMotorbike([])
+            setPages({
                 next: null
             })
           }
         }
     }
 
-    const onSearch = async(event)=>{
+    const toSearch = async(event)=>{
       event.preventDefault();
-      const url = (brand)=> `http://localhost:8080/history/vehicles?search=${brand}`
+      const url = (brand)=> `http://localhost:8080/vehicles/category/2?search=${brand}`
       const brand = event.target.elements["search"].value
       setSearchParams({brand})
-      await getNextData(url(brand), true)
+      await getToData(url(brand), true)
     }
   
-    const goToDetail = (id)=> {
+    const goCarDetail = (id)=> {
       navigate(`/vehicles/${id}`)
     }
-
   return (
     <>
       <Navbar />
       <div className="tombol container"  >
       <div className='row mt-5'>
         <div className='col-md-12'>
-          <form id='search' onSubmit={onSearch} className="input-group" >
+          <form id='search' onSubmit={toSearch} className="input-group" >
             <input name='search' type="search" className="form-control" placeholder="Search vehicle" aria-label="Search" aria-describedby="search-addon" />
             {/* <select name='type' className='form-control'>
               <option value='' style={{display: 'none'}}>Type</option>
@@ -96,24 +96,23 @@ export const ViewMoreDetail = () => {
       </div>              
       </div>
       <div  className="list">
-    <div className="pop">
+      <div className="car">
       <div className="texts d-flex justify-content-between">
         <div>
-          <p className="hei">Popular in Town </p>
+          <p className="hei">Motorbike </p>
         </div>
       </div>
       <div>
-        <p class="click">Click item to see details and reservation</p>
+          <p class="click">Click item to see details and reservation</p>
       </div>
       <div className="image container">
         <div className="row">
-          {popular.map((data2, idx)=>{
-            console.log(data2.image)
+          {motorbike.map((data, idx)=>{
             return(
-              <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
+              <div key={String(data.id)} onClick={()=>goCarDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
-                  <img className='img-fluid' src={data2.image} alt={data2.brand} />
-                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2'>{data2.brand}</div>
+                  <img className='img-fluid' src={data.image} alt={data.brand} />
+                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2'>{data.brand}</div>
                 </div>
               </div>
             )
@@ -137,4 +136,4 @@ export const ViewMoreDetail = () => {
   )
 }
 
-export default ViewMoreDetail
+export default ViewMoreMotorbike
