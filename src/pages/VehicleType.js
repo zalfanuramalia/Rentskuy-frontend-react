@@ -109,7 +109,7 @@ export const VehicleType = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link to='/Home' className="nav-link active" aria-current="page">Home</Link>
+              <Link to='/' className="nav-link active" aria-current="page">Home</Link>
             </li>
             <li className="nav-item">
               <Link to='/VehicleType' className="nav-link">Vehicle Type</Link>
@@ -125,7 +125,7 @@ export const VehicleType = () => {
             <div className="d-inline-block position-relative mail">
               <span className='position-relative goMail'>
                 <GoMail className='mail-1'/>
-                <FaCircle color='#9e9e9e' className='circle'/>
+                <FaCircle color='#71543A' className='circle'/>
                 <p className='val'>1</p>
               </span>              
               <img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" />
