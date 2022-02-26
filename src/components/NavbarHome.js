@@ -16,7 +16,7 @@ export default class NavbarHome extends Component {
             <div className="collapse navbar-collapse home" id="navbarSupportedContent">
               <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link to='/' className="nav-link active" color='#FE6694' aria-current="page">Home</Link>
+                  <Link to='/' className="nav-link active" color='#71543A' aria-current="page">Home</Link>
                 </li>
                 <li className="nav-item">
                   <Link to='/VehicleType' className="nav-link">Vehicle Type</Link>

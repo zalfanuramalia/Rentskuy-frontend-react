@@ -35,7 +35,7 @@ export default class Navbar extends Component {
             <div className="d-inline-block position-relative mail">
               <span className='position-relative goMail'>
                 <GoMail className='mail-1'/>
-                <FaCircle color='#9e9e9e' className='circle'/>
+                <FaCircle color='#71543A' className='circle'/>
                 <p className='val'>1</p>
               </span>              
               <img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" />
