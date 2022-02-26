@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import { FaChevronLeft, FaChevronDown } from 'react-icons/fa'
-
+import { Link } from 'react-router-dom'
 export default class Reservation extends Component {
     state = {
         value: 0
     }
 
-    changeValue = () => {
-        if("minus"){
+    changeValue = (tombol) => {
+        if(tombol === "minus"){
             this.setState({value: this.state.value-1})
         } else {
             this.setState({value: this.state.value+1})
@@ -23,8 +23,7 @@ export default class Reservation extends Component {
         <Navbar />
         <div className="payment">
         <div className="reserve">
-          <a href="/ViewMoreDetail"><FaChevronLeft /></a> 
-          <span>Reservation</span>
+          <Link to='/VehicleType' style={{textDecoration:"none"}} className="d-flex"> <span><FaChevronLeft /></span>  <p>Reservation</p> </Link>
         </div>
         <div className="container-fluid g-0">
           <div className="row g-0">
@@ -37,9 +36,9 @@ export default class Reservation extends Component {
                 <h1 className="text-2"> Yogyakarta</h1>
                 <p className="text-3">No Prepayment</p>
                 <div className="qty ">
-                    <button className="minus " onClick={this.changeValue}>-</button>
+                    <button className="minus " onClick={()=>this.changeValue("minus")}>-</button>
                     <div type="number" className="count" name="qty">{this.state.value}</div>
-                    <button className="plus " onClick={this.changeValue}>+</button>
+                    <button className="plus " onClick={()=>this.changeValue("plus")}>+</button>
                 </div>
                 <div className="text-4">
                   <p>Reservation Date :</p>

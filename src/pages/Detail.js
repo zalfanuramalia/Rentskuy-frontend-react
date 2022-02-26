@@ -3,16 +3,29 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { getData } from '../helpers/http'
 import Footer from '../components/Footer'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { FaHeart, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 export const Detail = (props) => {
     const [vehicles, setVehicles] = useState({})
     const [count, setCount] = useState(0)
     
-    const onPlus = () => {
-      setCount(count + 1);
+    // const changeValue = (tombol) => {
+    //   if(tombol === "minus"){
+    //       setCount({count: props.count-1})
+    //   } else {
+    //       setCount({count: props.count+1})
+    //   }
+    // }
+
+    // useEffect (()=>{
+    //   changeValue()
+    // })
+
+    const onPlus = (count) => {
+      setCount([count + 1]);
+      
     };
-    const onMinus = () => {
+    const onMinus = (count) => {
       setCount(count - 1);
     };
 
@@ -24,16 +37,15 @@ export const Detail = (props) => {
 
     useEffect(()=>{
       console.log(vehicles)
-    })
-
-    useEffect(()=>{
-      setCount(count)
     },[])
+
+    // useEffect(()=>{
+    //   setCount(count)
+    // },[])
 
     const getDataComponent = async (id)=>{
         try{
             const {data} = await getData(`http://localhost:8080/vehicles/${id}`, props.history)
-            console.log(data)
             setVehicles(data.results)
         }catch(e){
             
@@ -47,12 +59,10 @@ export const Detail = (props) => {
         <Link to='/VehicleType' className="d-inline-flex justify-content-start" aria-current="page"> <FaChevronLeft /> <p>Detail</p> </Link>
       </div>
       <div className="vehicles">
-        <div className="vehicles-details d-flex justify-content center flex-wrap position-relative">
-          <div className="vehicles-image p-3">
-            <div className="main-image">
-              <img className='img-fluid' src={vehicles?.image} alt="charImg" />
-            </div> 
-          </div>
+        <div className="vehicles-details d-flex flex-wrap justify-content-start position-relative">
+          <div className="main-image">
+            <img className='img-fluid' src={vehicles?.image} alt="charImg" />
+          </div>  
           <div className="description">
             <div className="details p-1 position-relative">
               <div className="city">
@@ -73,26 +83,36 @@ export const Detail = (props) => {
       </div>
       <form className="position-relative container reserve">
         <div className="quantity row">
-          <div className='col d-flex px-1'>
-            <FaChevronLeft /> 
+          <div className='col-6 d-flex two-image'>
+            <div className='left'>
+              <FaChevronLeft />
+            </div>             
             <img className='img-fluid' src={vehicles?.image} alt='charImg' />
             <img className='img-fluid' src={vehicles?.image} alt='charImg' />
-            <FaChevronRight />
+            <div className='right'>
+              <FaChevronRight />
+            </div>            
           </div>
-          <div className='col d-flex'>
-            <button onClick={onMinus}>-</button>
-            <div>{count}</div>
-            <button variant="contained" onClick={onPlus}>+</button>
+          <div className='col-6 d-flex counting'>
+            <button  className='minus' onClick={onPlus} >-</button>
+            <div type='number' className='count'>{count}</div>
+            <button className='plus' onClick={onMinus} >+</button>
           </div>
         </div>
       </form>
       <div className="button container">
-        <div className='row'>
-          <div className='col'>
-            <Link to='/' className="button-chat btn btn-primary chat " type="button">Chat Admin</Link>
-            <Link to='/reservation' className="submit-button btn btn-primary chat">Reservation</Link>
-            <Link to="/" className="button-like btn btn-primary like " role="button"><i className="fa-solid fa-heart"></i>Like</Link>
+        <div className='row justify-content-around'>
+          <div className='button-chat btn btn-primary col-2'>
+            <Link to='/' style={{textDecoration:"none"}} type="button"> <p>Chat Admin</p></Link>
           </div>
+          <div className="submit-button btn btn-primary">
+            <Link to='/reservation' style={{textDecoration:"none"}} > <p>Reservation</p> </Link>
+          </div>
+          <div className="button-like btn btn-primary ">
+            <Link to="/" style={{textDecoration:"none"}} className='d-flex justifiy-content-around' role="button"> <span><FaHeart /> </span> <p>Like</p> </Link>
+          </div>
+            
+          
         </div>
       </div>
     </div>
