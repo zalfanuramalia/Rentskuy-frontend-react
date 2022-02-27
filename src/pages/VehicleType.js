@@ -100,9 +100,9 @@ export const VehicleType = () => {
     <>
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
-        <a className="navbar-brand" href="Home">
+        <Link to='/' className="navbar-brand">
           <img src={logo} alt="logo" className='logo'/>
-        </a>
+        </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -152,7 +152,7 @@ export const VehicleType = () => {
               <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
                   <img className='img-fluid' src={data2.image} alt={data2.brand} />
-                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2'>{data2.brand}</div>
+                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data2.brand} </div>
                 </div>
               </div>
             )
@@ -183,7 +183,7 @@ export const VehicleType = () => {
               <div key={String(data.id)} onClick={()=>goToDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
                   <img className='img-fluid' src={data.image} alt={data.brand} />
-                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2'>{data.brand}</div>
+                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 cars'>{data.brand}</div>
                 </div>
               </div>
             )
@@ -214,7 +214,7 @@ export const VehicleType = () => {
               <div key={String(data1.id)} onClick={()=>goToDetail(data1.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
                   <img className='img-fluid' src={data1.image} alt={data1.brand} />
-                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2'>{data1.brand}</div>
+                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 motorcycle'>{data1.brand}</div>
                 </div>
               </div>
             )
@@ -245,7 +245,7 @@ export const VehicleType = () => {
               <div key={String(data1.id)} onClick={()=>goToDetail(data1.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
                   <img className='img-fluid' src={data1.image} alt={data1.brand} />
-                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2'>{data1.brand}</div>
+                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 bike'>{data1.brand}</div>
                 </div>
               </div>
             )
