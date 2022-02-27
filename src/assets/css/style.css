@@ -1378,6 +1378,17 @@ p.val {
   line-height: 25px;
 }
 
+.list .image .popular,
+.list .image .cars,
+.list .image .motorcycle,
+.list .image .bike {
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 25px;
+
+}
+
 .list .image img {
   border-radius: 10px;
 }
