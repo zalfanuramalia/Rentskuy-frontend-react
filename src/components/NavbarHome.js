@@ -28,9 +28,9 @@ export default class NavbarHome extends Component {
                   <a className="nav-link" href="/Home">About</a>
                 </li>
               </ul>
-              <div className="toggled-action">
-                <button className="button-outline mx-3" > <a href="./login.html">Login</a></button>
-                <button className="button-filled" onClick={this.onRegister} > Register</button>
+              <div className="toggled-action d-flex align-items-center">
+                <Link to='/Login' className="button-outline mx-3" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Login</p> </Link>
+                <Link to='/Register' className="button-filled" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Register</p> </Link>
               </div>
             </div>
           </div>

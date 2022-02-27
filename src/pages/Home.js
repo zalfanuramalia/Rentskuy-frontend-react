@@ -9,6 +9,8 @@ import element from '../assets/images/element.png'
 // import elementTwo from '../assets/images/element-2.png'
 import people from '../assets/images/people.png'
 import {FaStar} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { FaChevronRight } from 'react-icons/fa'
 
 export default class Home extends Component {
   state = {
@@ -86,8 +88,12 @@ export default class Home extends Component {
         </header>
         <footer className='container-md-fluid control'>
           <div className="texts d-flex justify-content-between">
-            <p className="hei">Popular in Town </p>
-            <p className="hai">view all <i class="fa-solid fa-chevron-right"> </i></p> 
+            <div>
+              <p className="hei">Popular in Town </p>
+            </div>
+            <div>
+              <Link to='/viewDetail' className='nav-link hai'>view all <FaChevronRight /> </Link>
+            </div>      
           </div>
           <div className='image container'>
             <div className="row">
