@@ -6,7 +6,6 @@ export default class Register extends Component {
   render() {
     return (
       <>
-      <Navbar />
         <div className="container-fluid g-0 login">
     <div className="row g-0">
       <div className="col-6 bg-image"></div>
@@ -56,7 +55,6 @@ export default class Register extends Component {
       </div>
     </div>
   </div>
-  <Footer />
       </>
     )
   }
