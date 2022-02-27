@@ -56,7 +56,7 @@ export const Detail = (props) => {
     <Navbar />
     <div className='detail-vehicle'>
       <div className="back">
-        <Link to='/VehicleType' className="d-inline-flex justify-content-start" aria-current="page"> <FaChevronLeft /> <p>Detail</p> </Link>
+        <Link to='/VehicleType' style={{textDecoration:"none"}} className="d-inline-flex justify-content-start" aria-current="page"> <FaChevronLeft /> <p>Detail</p> </Link>
       </div>
       <div className="vehicles">
         <div className="vehicles-details d-flex flex-wrap justify-content-start position-relative">
