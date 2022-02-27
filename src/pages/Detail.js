@@ -51,12 +51,18 @@ export const Detail = (props) => {
             
         }
     }
+
+    const goBack = () => {
+      window.history.back()
+    }
+
   return (
     <>
     <Navbar />
     <div className='detail-vehicle'>
-      <div className="back">
-        <Link to='/VehicleType' style={{textDecoration:"none"}} className="d-inline-flex justify-content-start" aria-current="page"> <FaChevronLeft /> <p>Detail</p> </Link>
+      <div onClick={goBack} className="back-btn d-flex justify-content-start back" style={{cursor: 'pointer'}}>
+        <span><FaChevronLeft /></span> 
+        <p>Detail</p> 
       </div>
       <div className="vehicles">
         <div className="vehicles-details d-flex flex-wrap justify-content-start position-relative">
@@ -73,7 +79,7 @@ export const Detail = (props) => {
               <p className='pre'>{vehicles?.can_prepayment}</p>
               <div class="about">
                 <p>Capacity : 1 person</p>
-                <p>Type : Bike</p>
+                <p>Type : {vehicles?.category_id}</p>
                 <p>Reservation before 2 PM</p>
               </div>
               <div className="price position-absolute">Rp.{vehicles?.price}/day</div>
@@ -83,7 +89,7 @@ export const Detail = (props) => {
       </div>
       <form className="position-relative container reserve">
         <div className="quantity row">
-          <div className='col-6 d-flex two-image'>
+          <div className='col-6 d-flex justify-content-between two-image py-4'>
             <div className='left'>
               <FaChevronLeft />
             </div>             
@@ -111,8 +117,6 @@ export const Detail = (props) => {
           <div className="button-like btn btn-primary ">
             <Link to="/" style={{textDecoration:"none"}} className='d-flex justifiy-content-around' role="button"> <span><FaHeart /> </span> <p>Like</p> </Link>
           </div>
-            
-          
         </div>
       </div>
     </div>
