@@ -56,7 +56,7 @@ export const ViewMoreDetail = () => {
 
     const onSearch = async(event)=>{
       event.preventDefault();
-      const url = (brand)=> `http://localhost:8080/history/vehicles?search=${brand}`
+      const url = (brand)=> `http://localhost:8080/history/vehicles?search=${brand}&limit=50`
       const brand = event.target.elements["search"].value
       setSearchParams({brand})
       await getNextData(url(brand), true)
@@ -73,7 +73,7 @@ export const ViewMoreDetail = () => {
       <div className='row mt-5'>
         <div className='col-md-12'>
           <form id='search' onSubmit={onSearch} className="input-group" >
-            <input name='search' type="search" className="form-control" placeholder="Search vehicle" aria-label="Search" aria-describedby="search-addon" />
+            <input name='search' type="search" className="form-control searching" placeholder="Search vehicle" aria-label="Search" aria-describedby="search-addon" />
             {/* <select name='type' className='form-control'>
               <option value='' style={{display: 'none'}}>Type</option>
               <option value="cars">Car</option>
