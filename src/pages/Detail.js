@@ -4,22 +4,11 @@ import Navbar from '../components/Navbar'
 import { getData } from '../helpers/http'
 import Footer from '../components/Footer'
 import { FaHeart, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import Button from '../components/Button'
 
 export const Detail = (props) => {
     const [vehicles, setVehicles] = useState({})
-    const [count, setCount] = useState(0)
-    
-    // const changeValue = (tombol) => {
-    //   if(tombol === "minus"){
-    //       setCount({count: props.count-1})
-    //   } else {
-    //       setCount({count: props.count+1})
-    //   }
-    // }
-
-    // useEffect (()=>{
-    //   changeValue()
-    // })
+    const [count, setCount] = useState(0)    
 
     const onPlus = (count) => {
       setCount([count + 1]);
@@ -48,7 +37,7 @@ export const Detail = (props) => {
             const {data} = await getData(`http://localhost:8080/vehicles/${id}`, props.history)
             setVehicles(data.results)
         }catch(e){
-            
+          console.log(e)
         }
     }
 
@@ -99,11 +88,7 @@ export const Detail = (props) => {
               <FaChevronRight />
             </div>            
           </div>
-          <div className='col-6 d-flex counting'>
-            <button  className='minus' onClick={onPlus} >-</button>
-            <div type='number' className='count'>{count}</div>
-            <button className='plus' onClick={onMinus} >+</button>
-          </div>
+          <Button></Button>
         </div>
       </form>
       <div className="button container">
