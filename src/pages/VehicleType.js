@@ -60,38 +60,6 @@ export const VehicleType = () => {
     setPage(data1.pageInfo)
   }
 
-  // const getNextData = async (url, replace = false) => {
-  //       try{
-  //           setErrorMsg(null)
-  //           const {data} = await axios.get(url)
-  //           if(replace){
-  //               setCar(data.result)
-  //           }else{
-  //               setCar([
-  //                   ...car,
-  //                   ...data.result
-  //               ])
-  //           }
-  //           setPage(data.info)
-  //       }catch(e){
-  //           if(e.message.includes('404')){
-  //               setErrorMsg('Data not found!')
-  //               setCar([])
-  //               setPage({
-  //                   next: null
-  //               })
-  //           }
-  //       }
-  //   }
-
-  // const onSearch = async(event)=>{
-  //   event.preventDefault();
-  //   const url = (brand)=> `http://localhost:8080/vehicles?search=${brand}`
-  //   const brand = event.target.elements["search"].value
-  //   setSearchParams({brand})
-  //   await getNextData(url(brand), true)
-  // }
-
   const goToDetail = (id)=> {
     navigate(`/vehicles/${id}`)
   }
@@ -128,7 +96,7 @@ export const VehicleType = () => {
                 <FaCircle color='#71543A' className='circle'/>
                 <p className='val'>1</p>
               </span>              
-              <img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" />
+              <Link to='/profil' className='profile-nav'><img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" /></Link> 
             </div>
           </div>
         </div>
@@ -158,13 +126,6 @@ export const VehicleType = () => {
             )
           })}
         </div>
-        {/* {page.next!==null&&
-          <div className='row my-5'>
-            <div className='col-md-12 text-center'>
-              <button onClick={()=>getNextData(page.next)} className='btn btn-primary'>Load More</button>
-            </div>
-          </div>
-        } */}
       </div>
     </div>
     <div className="car">
@@ -189,13 +150,6 @@ export const VehicleType = () => {
             )
           })}
         </div>
-        {/* {page.next!==null&&
-          <div className='row my-5'>
-            <div className='col-md-12 text-center'>
-              <button onClick={()=>getNextData(page.next)} className='btn btn-primary'>Load More</button>
-            </div>
-          </div>
-        } */}
       </div>
     </div>
     <div className="motorbike">
@@ -220,13 +174,6 @@ export const VehicleType = () => {
             )
           })}
         </div>
-        {/* {page.next!==null&&
-          <div className='row my-5'>
-            <div className='col-md-12 text-center'>
-              <button onClick={()=>getNextData(page.next)} className='btn btn-primary'>Load More</button>
-            </div>
-          </div>
-        } */}
       </div>
     </div>
     <div className="bike">
@@ -251,13 +198,6 @@ export const VehicleType = () => {
             )
           })}
         </div>
-        {/* {page.next!==null&&
-          <div className='row my-5'>
-            <div className='col-md-12 text-center'>
-              <button onClick={()=>getNextData(page.next)} className='btn btn-primary'>Load More</button>
-            </div>
-          </div>
-        } */}
       </div>
     </div>
   </div>
