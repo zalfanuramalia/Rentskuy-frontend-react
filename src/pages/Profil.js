@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { FaPencilAlt } from 'react-icons/fa'
+import profil from '../assets/images/people-2.png'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
@@ -15,8 +17,8 @@ export default class Profil extends Component {
       <div className="text-center mb-5">
         <div className="mb-5">
           <div className="d-inline-block position-relative">
-            <img src="./assets/images/people-2.png" alt="Profile Picure" className="img-thumbnail rounded-circle" />
-            <button className="edit-photo"><i className="fa-solid fa-pencil"></i></button>
+            <img src={profil} alt="Profile Picure" className="img-thumbnail rounded-circle photo-people" />
+            <button className="edit-photo"> <FaPencilAlt /> </button>
           </div>
         </div>
         <div>
