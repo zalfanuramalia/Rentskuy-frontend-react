@@ -38,7 +38,7 @@ export default class Navbar extends Component {
                 <FaCircle color='#71543A' className='circle'/>
                 <p className='val'>1</p>
               </span>              
-              <img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" />
+              <Link to='/profil' className='profile-nav'><img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" /></Link> 
             </div>
           </div>
         </div>
