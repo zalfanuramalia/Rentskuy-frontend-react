@@ -14,11 +14,17 @@ export const ViewMoreDetail = () => {
 
   useEffect(()=>{
     const brand = searchParams.get('brand')
+    const location = searchParams.get('location')
+    const type = searchParams.get('type')
+    const payment = searchParams.get('payment')
 
-    if(brand){
-        const url = (brand)=> `http://localhost:8080/history/vehicles?search=${brand}`
+    if(brand || location || type || payment){
+        const url = (brand)=> `http://localhost:8080/history/vehicles?search=${brand}&location=${location}&type=${type}&payment=${payment}`
         document.getElementById('search').elements['search'].value = brand
-        getNextData(url(brand), true)
+        document.getElementById('search').elements['search'].value = location
+        document.getElementById('search').elements['search'].value = type
+        document.getElementById('search').elements['search'].value = payment
+        getNextData(url(brand, location, type, payment), true)
     }else{
         getPopular()
     }
@@ -56,10 +62,13 @@ export const ViewMoreDetail = () => {
 
     const onSearch = async(event)=>{
       event.preventDefault();
-      const url = (brand)=> `http://localhost:8080/history/vehicles?search=${brand}&limit=50`
+      const url = (brand, location, type, payment)=> `http://localhost:8080/history/vehicles?search=${brand}&location=${location}&type=${type}&payment=${payment}&limit=50`
       const brand = event.target.elements["search"].value
-      setSearchParams({brand})
-      await getNextData(url(brand), true)
+      const location = event.target.elements["location"].value
+      const type = event.target.elements["type"].value
+      const payment = event.target.elements["payment"].value
+      setSearchParams({brand, location, type, payment})
+      await getNextData(url(brand, location, type, payment), true)
     }
   
     const goToDetail = (id)=> {
@@ -74,12 +83,22 @@ export const ViewMoreDetail = () => {
         <div className='col-md-12'>
           <form id='search' onSubmit={onSearch} className="input-group" >
             <input name='search' type="search" className="form-control searching" placeholder="Search vehicle" aria-label="Search" aria-describedby="search-addon" />
-            {/* <select name='type' className='form-control'>
+            <select name='location' className='form-control'>
+              <option value='' style={{display: 'none'}}>Location</option>
+              <option value="cars">Yogyakarta</option>
+              <option value="motorbike">Bandung</option>
+            </select>
+            <select name='type' className='form-control'>
               <option value='' style={{display: 'none'}}>Type</option>
-              <option value="cars">Car</option>
-              <option value="motorbike">Motorcycle</option>
-              <option value="bike">Bike</option>
-            </select> */}
+              <option value="Car">Car</option>
+              <option value="Motorcycle">Motorcycle</option>
+              <option value="Bike">Bike</option>
+            </select>
+            <select name='payment' className='form-control'>
+              <option value='' style={{display: 'none'}}>Payment</option>
+              <option value="cash">Cash</option>
+              <option value="transfer">Transfer</option>
+            </select>
             <button type='submit' className='btn btn-primary'>Search</button>
           </form>
           {errorMsg!==null&&
@@ -113,7 +132,7 @@ export const ViewMoreDetail = () => {
               <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
                   <img className='img-fluid' src={data2.image} alt={data2.brand} />
-                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2'>{data2.brand}</div>
+                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data2.brand}</div>
                 </div>
               </div>
             )
