@@ -1,63 +1,57 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import NavbarHome from '../components/NavbarHome'
-import item1 from '../assets/images/merapi.png'
-import item2 from '../assets/images/telukbogam.png'
-import item3 from '../assets/images/bromo.png'
-import item4 from '../assets/images/malioboro.png'
 import element from '../assets/images/element.png'
-// import elementTwo from '../assets/images/element-2.png'
 import people from '../assets/images/people.png'
 import {FaStar} from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { FaChevronRight } from 'react-icons/fa'
+import {default as axios} from 'axios'
 
-export default class Home extends Component {
-  state = {
-    item: [
-      {
-        name: 'Merapi',
-        location: 'Yogyakarta'
-      },
-      {
-        name: 'Teluk Bogam',
-        location: 'Kalimantan'
-      },
-      {
-        name: 'Bromo',
-        location: 'Malang'
-      },
-      {
-        name: 'Malioboro',
-        location: 'Yogyakarta'
-      }
-    ]
+export const Home = () => {
+    const [popular, setPopular] = useState([])
+
+    const navigate = useNavigate()
+
+    
+  useEffect (()=>{
+    getPopular()
+  },[])
+
+  const getPopular = async () => {
+    const {data: data2} = await axios.get ('http://localhost:8080/history/vehicles')
+    console.log(data2)
+    setPopular(data2.result)
   }
-  render() {
-    return (
+
+
+const goToDetail = (id)=> {
+  navigate(`/vehicles/${id}`)
+}
+  return (
       <>
         <NavbarHome />
-        <header className="header-home">
+        <header className="header-home img-fluid">
           <div className="content-home">
             <div className="header-pic">
               <h1 className="text-1">Explore and Travel</h1>
               <h1 className="text-2"> Vehicle Finder </h1>
               <div><i className="fa-solid fa-horizontal-rule"></i></div>
             </div>
-            <form className='container mt-5'>
+            <form  className='filter-home container mt-5'>
               <div className="row type-1">
                 <div className="my-2 col-3 select-1 position-relative">
                   <select className="form-select" aria-label="Default select example">
-                    <option selected>Location</option>
+                    <option style={{display:'none'}} selected>Location</option>
                     <option value="1">Yogyakarta</option>
-                    <option value="2">Malang</option>
-                    <option value="3">Kalimantan</option>
+                    <option value="2">Bandung</option>
                   </select>
                   <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div className="my-2 col-3 select-2 position-absolute">
                   <select className="form-select" aria-label="Default select example">
-                    <option selected>Type</option>
+                    <option style={{display:'none'}} selected>Type</option>
                     <option value="1">Cars</option>
                     <option value="2">Motorbike</option>
                     <option value="3">Bike</option>
@@ -68,21 +62,17 @@ export default class Home extends Component {
               <div className="row type-2">
                 <div className="my-2 col-3 select-1 position-relative">
                   <select className="form-select" aria-label="Default select example">
-                    <option selected>Payment</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option style={{display:'none'}} selected>Payment</option>
+                    <option value="1">Cash</option>
+                    <option value="2">Transfer</option>
                   </select>
                   <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div className="my-2 col-3 select-2 position-absolute">
-                  <select className="form-select" aria-label="Default select example" id="datepicker">
-                    <option selected>Date</option>
-                  </select>
-                  <i class="fa-solid fa-chevron-down"></i>
+                  <input className="form-control" type="date" name="date" placeholder='Date' />
                 </div>
               </div>
-              <button className="explore">Explore</button>
+              <button type='submit' className="explore ">Explore</button>
             </form>
           </div>
         </header>
@@ -91,30 +81,23 @@ export default class Home extends Component {
             <div>
               <p className="hei">Popular in Town </p>
             </div>
-            <div>
-              <Link to='/viewDetail' className='nav-link hai'>view all <FaChevronRight /> </Link>
-            </div>      
+            <Link to='/viewDetail' className='nav-link hai'>view all <FaChevronRight /> </Link>
           </div>
-          <div className='image container'>
-            <div className="row">
-              <div className="col-6 col-md-3 ">
-                <img src={item1} alt="Merapi" />
-                <div className="merapi">Merapi Yogyakarta  </div>
+          <div className="image container">
+        <div className="row">
+          {popular.map((data2, idx)=>{
+            console.log(data2.image)
+            return(
+              <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-md-3'>
+                <div className='position-relative mb-2'>
+                  <img className='img-fluid' src={data2.image} alt={data2.brand} />
+                  <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data2.brand} </div>
+                </div>
               </div>
-              <div className="col-6 col-md-3 ">
-                <img src={item2} alt="TelukBogam" />
-                <div className="telukbogam">Teluk Bogam Kalimantan  </div>
-              </div>
-              <div className="col-6 col-md-3 ">
-                <img src={item3} alt="Bromo" />
-                <div className="bromo">Bromo Malang </div>
-              </div>
-              <div className="col-6 col-md-3 ">
-                <img src={item4} alt="Malioboro" />
-                <div className="malioboro">Malioboro Yogyakarta  </div>
-              </div>
-            </div>
-          </div>
+            )
+          })}
+        </div>
+      </div>
           <div className="text-pic">
             <div className="d-inline-block position-relative img-1">
               <img className='element' src={element} alt="Element" />
@@ -128,7 +111,7 @@ export default class Home extends Component {
             <p>Testimonials</p>
           </div>
           <div className="descOne row">
-            <div className="col flex-row-reverse">
+            <div className="col">
               <div className="stars text-center text-md-start d-flex justify-content-justify">
                 <FaStar />
                 <FaStar />
@@ -136,7 +119,7 @@ export default class Home extends Component {
                 <FaStar />
                 <FaStar />
               </div>
-              <div className="text-description d-flex">
+              <div className="text-description d-flex ">
                 <img src={element}alt="Element" />
                 <p className="d-text"> ”It was the right decision to rent vehicle here, I spent less money and enjoy the trip. It was an amazing experience to have a ride for wildlife trip!”</p>
               </div>
@@ -154,4 +137,6 @@ export default class Home extends Component {
       </>
     )
   }
-}
+
+  export default Home
+
