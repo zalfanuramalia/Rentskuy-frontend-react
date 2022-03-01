@@ -67,7 +67,7 @@ export const Detail = (props) => {
               <h4 className='available'>{vehicles?.isAvailable}</h4>
               <p className='pre'>{vehicles?.can_prepayment}</p>
               <div class="about">
-                <p>Capacity : 1 person</p>
+                <p>Capacity : {vehicles?.qty}</p>
                 <p>Type : {vehicles?.category_id}</p>
                 <p>Reservation before 2 PM</p>
               </div>
