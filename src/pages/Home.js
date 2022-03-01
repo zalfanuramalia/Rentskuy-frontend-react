@@ -33,10 +33,10 @@ const goToDetail = (id)=> {
       <>
         <NavbarHome />
         <header className="header-home img-fluid">
-          <div className="content-home">
-            <div className="header-pic">
-              <h1 className="text-1">Explore and Travel</h1>
-              <h1 className="text-2"> Vehicle Finder </h1>
+          <div className="content-home img-fluid">
+            <div className="header-pic ">
+              <h1 className="text-1  fs-0-0 lh-2 mb-5 text-center text-md-start">Explore and Travel</h1>
+              <h1 className="text-2 fw-bolder fs-5 mb-2 text-center text-md-start"> Vehicle Finder </h1>
               <div><i className="fa-solid fa-horizontal-rule"></i></div>
             </div>
             <form  className='filter-home container mt-5'>
@@ -88,7 +88,7 @@ const goToDetail = (id)=> {
           {popular.map((data2, idx)=>{
             console.log(data2.image)
             return(
-              <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-md-3'>
+              <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
                   <img className='img-fluid' src={data2.image} alt={data2.brand} />
                   <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data2.brand} </div>
@@ -110,7 +110,7 @@ const goToDetail = (id)=> {
           <div className="texts2">
             <p>Testimonials</p>
           </div>
-          <div className="descOne row">
+          <div className="descOne row g-0">
             <div className="col">
               <div className="stars text-center text-md-start d-flex justify-content-justify">
                 <FaStar />
