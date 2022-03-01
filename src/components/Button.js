@@ -2,31 +2,40 @@ import React from "react"
 
 export class Button extends React.Component {
     state = {
-        angka: 1
+        value: 0
     }
 
-    ubahAngka = () => {
-        this.setState({angka: 0})
-    }    
-
-    componentDidMount(){
-        console.log("Komponen berhasil ditampilkan!")
-    }
+    onPlus= () => {
+        this.setState({
+            value: this.state.value +1
+        })
+        
+    }  
     
-    componentDidUpdate(){
-        console.log("Komponen berhasil di update!")
+    onMinus = () => {
+        this.setState({
+            value: this.state.value - 1
+        })
     }
 
-    componentWillUnmount(){
-        console.log("Komponen dihilangkan!")
-    }
+    // componentDidMount(){
+    //     console.log("Komponen berhasil ditampilkan!")
+    // }
+    
+    // componentDidUpdate(){
+    //     console.log("Komponen berhasil di update!")
+    // }
+
+    // componentWillUnmount(){
+    //     console.log("Komponen dihilangkan!")
+    // }
 
     render(){
         return (
-            <div className="but">
-                <button onClick={this.ubahAngka}>-</button>
-                <div>{this.props.angka}</div>
-                <button variant="contained" onClick={this.ubahAngka}>+</button>
+            <div className="col-6 d-flex counting ">
+                    <button className="minus " onClick={this.onPlus}>-</button>
+                    <div type="number" className="count" name="qty">{this.state.value}</div>
+                    <button className="plus " onClick={this.onMinus}>+</button>
             </div>
         )
     }
