@@ -15,6 +15,7 @@ import ViewMoreCar from './pages/ViewMoreCar'
 import ViewMoreMotorbike from './pages/ViewMoreMotorbike'
 import History from './pages/History'
 import ViewMoreBike from './pages/ViewMoreBike'
+import Button from './components/Button'
 import { unstable_HistoryRouter as HistoryRouter, Route, Routes } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 export default class App extends Component {
@@ -31,8 +32,8 @@ export default class App extends Component {
       <>
       <HistoryRouter history={this.history}>
       <Routes>
-            <Route path='navbar' element={<NavbarHome />} />
             <Route path='/' element={<Home />} />
+            <Route path='navbar' element={<NavbarHome />} />
             <Route path='login' element={<Login />} />
             <Route path='vehicleType' element={<VehicleType />} />
             <Route path='viewDetail' element={<ViewMoreDetail />} />
@@ -47,6 +48,7 @@ export default class App extends Component {
             <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
             <Route path='history' element={<History />} />
             <Route path='viewMoreBike' element={<ViewMoreBike />} />
+            <Route path='button' element={<Button />} />
           </Routes>
       </HistoryRouter>
       {/* <BrowserRouter>
