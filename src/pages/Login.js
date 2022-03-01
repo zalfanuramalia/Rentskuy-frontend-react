@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import google from '../assets/images/google.png'
 import logo from '../assets/images/logo.png'
 
@@ -50,11 +51,11 @@ export default class Login extends Component {
                                 <button onClick={this.onLogin} className='button-send btn btn-primary' >Login</button>
                             </div>
                             <div className="mb-3">
-                                <a href="/forgot-password">Forgot Password?</a>
+                                <Link to='/ForgotPassword' className="nav-link active" aria-current="page">Forgot Password?</Link>
                             </div>
                             <div className="d-flex position-relative justify-content-center align-items-center flex-column my-5 text-again">
                                 <div className="border border-bottom-1 w-100"></div>
-                                <div className="position-absolute bg-white px-3">or try another way</div>
+                                <div className="position-absolute px-3 text-try">or try another way</div>
                             </div>
                             <div>
                                 <button className="button-mail"> <img src={google} alt="Logo" /><span>    Login with Google     </span> </button> 
