@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {default as axios} from 'axios'
+import { connect, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams} from 'react-router-dom'
+import { getCar, filterCar } from '../redux/actions/car'
+import Skeleton from  'react-loading-skeleton'
 
-export const ViewMoreCar = () => {
+export const ViewMoreCar = ({getCar, filterCar}) => {
+  const {car: cars} = useSelector (state => state)
   const [car, setCar] = useState([])
   const [pages, setPages] = useState({})
   const [errorMsg, setErrorMsg] = useState(null)
@@ -31,11 +35,11 @@ export const ViewMoreCar = () => {
     }
   },[])
 
-  const getCar = async () => {
-    const {data} = await axios.get ('http://localhost:8080/vehicles/category/1?limit=50')
-    console.log(data)
-    setCar(data.results)
-  }
+  // const getCar = async () => {
+  //   const {data} = await axios.get ('http://localhost:8080/vehicles/category/1?limit=50')
+  //   console.log(data)
+  //   setCar(data.results)
+  // }
 
   const getToData = async (url1, replace = false) => {
     try{
@@ -63,13 +67,12 @@ export const ViewMoreCar = () => {
 
     const toSearch = async(event)=>{
       event.preventDefault();
-      const url = (brand)=> `http://localhost:8080/vehicles/category/1?search=${brand}&location=${location}&type=${type}&payment=${payment}&limit=50`
       const brand = event.target.elements["search"].value
       const location = event.target.elements["location"].value
       const type = event.target.elements["type"].value
       const payment = event.target.elements["payment"].value
       setSearchParams({brand, location, type, payment})
-      await getToData(url(brand, location, type, payment), true)
+      filterCar(brand, location, type, payment)
     }
   
     const goCarDetail = (id)=> {
@@ -126,8 +129,11 @@ export const ViewMoreCar = () => {
           <p class="click">Click item to see details and reservation</p>
       </div>
       <div className="image container">
-        <div className="row">
-          {car.map((data, idx)=>{
+        {cars.isLoading &&
+          <Skeleton height={150} containerClassName='row' count={8} wrapper={({children})=>(<div className='col-md-3'>{children}</div>)} />
+        }
+        {!cars.isLoading && <div className="row">
+          {cars.car.map((data, idx)=>{
             return(
               <div key={String(data.id)} onClick={()=>goCarDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
@@ -137,7 +143,7 @@ export const ViewMoreCar = () => {
               </div>
             )
           })}
-        </div>
+        </div>}
         {/* {page.next!==null&&
           <div className='row my-5'>
             <div className='col-md-12 text-center'>
@@ -156,4 +162,8 @@ export const ViewMoreCar = () => {
   )
 }
 
-export default ViewMoreCar
+const mapStateToProps = state => ({car: state.car})
+
+const mapDispatchToProps = {getCar, filterCar}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewMoreCar)
