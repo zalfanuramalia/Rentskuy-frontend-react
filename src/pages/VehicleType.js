@@ -68,7 +68,7 @@ export const VehicleType = () => {
     <>
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
-        <Link to='/' className="navbar-brand">
+        <Link to='/homepage' className="navbar-brand">
           <img src={logo} alt="logo" className='logo'/>
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,7 @@ export const VehicleType = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link to='/' className="nav-link active" aria-current="page">Home</Link>
+              <Link to='/homepage' className="nav-link active" aria-current="page">Home</Link>
             </li>
             <li className="nav-item">
               <Link to='/VehicleType' className="nav-link">Vehicle Type</Link>
