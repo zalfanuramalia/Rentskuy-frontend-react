@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 
 
 export default class Payment extends Component {
   render() {
     return (
-      <>
-      <Navbar />
+      <Layout>
         <div className="payment">
     <div className="reserve">
       <i className="fa-solid fa-chevron-left"></i>
@@ -75,7 +75,7 @@ export default class Payment extends Component {
     </button>
   </div>
   <Footer />
-      </> 
+      </Layout>
     )
   }
 }

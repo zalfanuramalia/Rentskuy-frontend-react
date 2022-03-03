@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import { FaSearch } from 'react-icons/fa'
+import Layout from '../components/Layout'
 export default class History extends Component {
   render() {
     return (
-        <>
-        <Navbar />
-            <div className="history-1">
+      <Layout>
+        <div className="history-1">
     <div className="d-flex">
       <div className="one">
         <div className="d-flex">
           <div className="input-group-md form-1">
             <input type="search" class="form-control" placeholder="Search history"  />
-            <FaSearch />
+            <span><FaSearch /></span> 
           </div>
           <div className="form-2">
             <select className="form-select" aria-label="Default select example">
@@ -88,10 +88,7 @@ export default class History extends Component {
     </div>
   </div>
   <Footer />
-        </>
-      
-
-      
+      </Layout>
     )
   }
 }

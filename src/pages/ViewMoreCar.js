@@ -6,6 +6,7 @@ import { connect, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams} from 'react-router-dom'
 import { getCar, filterCar } from '../redux/actions/car'
 import Skeleton from  'react-loading-skeleton'
+import Layout from '../components/Layout'
 
 export const ViewMoreCar = ({getCar, filterCar}) => {
   const {car: cars} = useSelector (state => state)
@@ -34,12 +35,6 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
         getCar()
     }
   },[])
-
-  // const getCar = async () => {
-  //   const {data} = await axios.get ('http://localhost:8080/vehicles/category/1?limit=50')
-  //   console.log(data)
-  //   setCar(data.results)
-  // }
 
   const getToData = async (url1, replace = false) => {
     try{
@@ -80,8 +75,7 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
     }
 
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div className="tombol container"  >
       <div className='row mt-5'>
         <div className='col-md-12'>
@@ -158,7 +152,7 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
      </div>
     </div>
       <Footer />
-    </>
+    </Layout>
   )
 }
 

@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { FaPencilAlt } from 'react-icons/fa'
 import profil from '../assets/images/people-2.png'
 import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 
 export default class Profil extends Component {
   render() {
     return (
-      <>
-      <Navbar />
+      <Layout>
         <form className="profile-edit">
     <main className="container">  
       <div className="profile mb-5">
@@ -88,7 +88,7 @@ export default class Profil extends Component {
     </main>
   </form>
   <Footer />
-      </>
+      </Layout>
     )
   }
 }

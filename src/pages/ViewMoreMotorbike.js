@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {default as axios} from 'axios'
 import { useNavigate, useSearchParams} from 'react-router-dom'
+import Layout from '../components/Layout'
 
 export const ViewMoreMotorbike = () => {
     const [motorbike, setMotorbike] = useState([])
@@ -76,8 +77,7 @@ export const ViewMoreMotorbike = () => {
       navigate(`/vehicles/${id}`)
     }
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div className="tombol container"  >
       <div className='row mt-5'>
         <div className='col-md-12'>
@@ -151,7 +151,7 @@ export const ViewMoreMotorbike = () => {
      </div>
     </div>
       <Footer />
-    </>
+    </Layout>
   )
 }
 

@@ -1,16 +1,14 @@
 import React from 'react'
 import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
 import { FaChevronLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/Button'
 import fixie from '../assets/images/fixie-grey.png'
+import Layout from '../components/Layout'
 
 export const Reservation = () => {
-      
       return (
-      <>
-        <Navbar />
+      <Layout>
         <div className="payment">
         <div className="reserve">
           <Link to='/VehicleType' style={{textDecoration:"none"}} className="d-flex"> <span><FaChevronLeft /></span>  <p>Reservation</p> </Link>
@@ -49,11 +47,10 @@ export const Reservation = () => {
         </div>
         <div className="pay-1">
           <Link to='/Payment' className="nav-link active" aria-current="page"><button>Pay now : Rp. 178.000</button></Link>
-          
         </div>
       </div>
-  <Footer />
-      </>
+      <Footer />
+      </Layout>
     )
 }
 
