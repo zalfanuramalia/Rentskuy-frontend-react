@@ -35,13 +35,13 @@ const goToDetail = (id)=> {
         <header className="header-home img-fluid">
           <div className="content-home img-fluid">
             <div className="header-pic ">
-              <h1 className="text-1  fs-0-0 lh-2 mb-5 text-center text-md-start">Explore and Travel</h1>
-              <h1 className="text-2 fw-bolder fs-5 mb-2 text-center text-md-start"> Vehicle Finder </h1>
-              <div><i className="fa-solid fa-horizontal-rule"></i></div>
+              <h1 className="text-1  fs-0-0 mb-5 text-center text-md-start">Explore and Travel</h1>
+              <h1 className="text-2 fs-5 mt-4 w-50 text-center text-md-start"> Vehicle Finder </h1>
+              <div className="text-3 w-50 text-center text-md-start"><i className="fa-solid fa-horizontal-rule mt-4"></i></div>
             </div>
             <form  className='filter-home container mt-5'>
-              <div className="row type-1">
-                <div className="my-2 col-3 select-1 position-relative">
+              <div className="row row-cols-1 row-cols-md-12 type-1">
+                <div className="my-2 col-md-3 col-md-6 g-0 form-select-sm select-1 position-relative">
                   <select className="form-select" aria-label="Default select example">
                     <option style={{display:'none'}} selected>Location</option>
                     <option value="1">Yogyakarta</option>
@@ -49,7 +49,7 @@ const goToDetail = (id)=> {
                   </select>
                   <i class="fa-solid fa-chevron-down"></i>
                 </div>
-                <div className="my-2 col-3 select-2 position-absolute">
+                <div className="my-2 col-md-3 col-md-6 g-0 form-select-sm select-2 position-absolute">
                   <select className="form-select" aria-label="Default select example">
                     <option style={{display:'none'}} selected>Type</option>
                     <option value="1">Cars</option>
@@ -60,7 +60,7 @@ const goToDetail = (id)=> {
                 </div>
               </div>
               <div className="row type-2">
-                <div className="my-2 col-3 select-1 position-relative">
+                <div className="my-2 col-md-3 col-md-6 form-select-sm select-1 position-relative">
                   <select className="form-select" aria-label="Default select example">
                     <option style={{display:'none'}} selected>Payment</option>
                     <option value="1">Cash</option>
@@ -68,7 +68,7 @@ const goToDetail = (id)=> {
                   </select>
                   <i class="fa-solid fa-chevron-down"></i>
                 </div>
-                <div className="my-2 col-3 select-2 position-absolute">
+                <div className="my-2 col-md-3 col-md-6 g-0 select-2 position-absolute">
                   <input className="form-control" type="date" name="date" placeholder='Date' />
                 </div>
               </div>
@@ -98,29 +98,22 @@ const goToDetail = (id)=> {
           })}
         </div>
       </div>
-          <div className="text-pic">
-            <div className="d-inline-block position-relative img-1">
-              <img className='element' src={element} alt="Element" />
-              <div className="d-flex element-3">
-                <i class="fa-solid fa-circle-chevron-left"></i>
-                <i class="fa-solid fa-circle-chevron-right"></i>
-              </div>
-            </div>
+          <div className="text-pic d-inline-block position-relative img-1">
+            <img className='element' src={element} alt="Element" />            
           </div>
           <div className="texts2">
             <p>Testimonials</p>
           </div>
           <div className="descOne row g-0">
             <div className="col">
-              <div className="stars text-center text-md-start d-flex justify-content-justify">
+              <div className="stars text-left text-md-start d-flex justify-content-justify">
                 <FaStar />
                 <FaStar />
                 <FaStar />
                 <FaStar />
                 <FaStar />
               </div>
-              <div className="text-description d-flex ">
-                <img src={element}alt="Element" />
+              <div className="text-description ">
                 <p className="d-text"> ”It was the right decision to rent vehicle here, I spent less money and enjoy the trip. It was an amazing experience to have a ride for wildlife trip!”</p>
               </div>
               <div className="s-text">
