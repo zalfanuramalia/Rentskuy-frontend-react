@@ -313,7 +313,7 @@ div.counting {
   border-radius: 10px;
   text-align: center;
   font-size: 24px;
-  background-color: #FE6694;
+  background-color: #A57E57;
   color: black;
   font-weight: 900;
   border: none;
@@ -438,8 +438,8 @@ footer.footer .link-social i {
   border-radius: 10px;
   text-align: center;
   font-size: 24px;
-  background-color: #FFCD61;
-  color: black;
+  background-color: #A57E57;
+  color: #70553B;
   font-weight: 900;
   border: none;
   font-family: 'Nunito', sans-serif;
@@ -466,6 +466,10 @@ footer.footer .link-social i {
   height: 33px;
 }
 
+.login .text2 div.text-again .text-try {
+  background-color: #DED0C1;
+}
+
 .login .text2 div.text-again .border {
   border: 1px solid #4E4E4E;
 }
@@ -478,7 +482,7 @@ footer.footer .link-social i {
   border-radius: 10px;
   text-align: center;
   font-size: 24px;
-  background-color: #FFFFFF;
+  background-color: #FAF8F6;
   box-shadow: 0px 0px 20px rgba(78, 78, 78, 0.4);
   color: black;
   font-weight: 900;
@@ -492,13 +496,13 @@ footer.footer .link-social i {
   height: 79px;
   width: 490px;
   border-radius: 10px;
-  background-color: #393939;
+  background-color: #3A2C1E;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 }
 
 .login .text2 form div button.button-register a {
   text-decoration: none;
-  color: #FFCD61;
+  color: #C2A78B;
   font-weight: 900;
   border: none;
   height: 79px;
@@ -524,6 +528,8 @@ footer.footer .link-social i {
   margin-top: 80px;
   margin-left: 10px;
   line-height: 28px;
+  width: 44.08px;
+  height: 42.9px;
 }
 
 .login .text2 .text-desc-1 .description {
@@ -647,16 +653,28 @@ button {
 
 @media (max-width: 500px) {
   .header-home {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
   }
 
   .header-home .content-home {
-    max-width: 100%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 375px) {
+  .header-home {
+    width: 100%;
+    height: 100%;
   }
 
-  .footer {
-    max-width: 100%;
+  .header-home .content-home {
+    width: 100%;
   }
+}
+
+.footer {
+  width: 100%;
 }
 
 .header-home {
@@ -685,7 +703,7 @@ button {
   text-align: left;
   font-weight: 900;
   line-height: 80px;
-  margin: 69px 963px 537px 121px;
+  margin: 69px 963px 537px 120px;
 }
 
 .header-home .content-home .header-pic h1.text-2 {
@@ -695,7 +713,7 @@ button {
   text-align: justify;
   font-weight: 700;
   line-height: 30px;
-  left: 121px;
+  left: 120px;
   top: 290px;
   color: #FAF8F6;
 }
@@ -711,12 +729,20 @@ button {
   position: absolute;
 }
 
+.type-1 {
+  width: 50%;
+}
+
+.type-2 {
+  width: 50%;
+}
+
 .header-home .content-home form .type-1 .select-1 select {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: #C2A78B;
-  border: 0.8px solid #AFB0B9;
+  background-color: #DED0C1;
+  border: 0.8px solid #A57E57;
   box-sizing: border-box;
   border-radius: 6px;
   top: 420px;
@@ -740,8 +766,8 @@ button {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: #C2A78B;
-  border: 0.8px solid #AFB0B9;
+  background-color: #DED0C1;
+  border: 0.8px solid #A57E57;
   box-sizing: border-box;
   border-radius: 6px;
   top: 420px;
@@ -749,7 +775,7 @@ button {
   font-weight: bold;
   font-size: 18px;
   line-height: 32px;
-  margin-left: 265px;
+  margin-left: 258px;
 }
 
 .header-home .content-home form .type-1 .select-2 i {
@@ -763,12 +789,12 @@ button {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: #C2A78B;
-  border: 0.8px solid #AFB0B9;
+  background-color: #DED0C1;
+  border: 0.8px solid #A57E57;
   box-sizing: border-box;
   border-radius: 6px;
   margin-left: 10px;
-  margin-top: 465px;
+  top: 465px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   font-size: 18px;
@@ -782,15 +808,15 @@ button {
   color: #4A4C53;
 }
 
-.header-home .content-home form .type-2 .select-2 select {
+.header-home .content-home form .type-2 .select-2 input {
   position: absolute;
   width: 220px;
   height: 52px;
-  background: #C2A78B;
-  border: 0.8px solid #AFB0B9;
+  background-color: #DED0C1;
+  border: 0.8px solid #A57E57;
   box-sizing: border-box;
   border-radius: 6px;
-  margin-top: 465px;
+  top: 465px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   font-size: 18px;
@@ -824,16 +850,18 @@ button {
   margin-left: 100px;
 }
 
-footer .image {
-  left: 15px;
+footer .image .popular {
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 25px;
 }
 
 footer p.hei {
   font-family: 'Playfair Display', serif;
   margin-top: 82px;
-  margin-left: 139px;
+  margin-left: 120px;
   color: #70553b;
-  ;
   font-weight: bold;
   line-height: 50px;
   font-size: 36px;
@@ -844,20 +872,12 @@ footer .hai {
   font-size: 17px;
   margin-top: 82px;
   line-height: 50px;
-  margin-right: 135px;
+  margin-right: 120px;
+  padding: unset;
 }
 
 footer div.image {
-  margin-left: 100px;
-  margin-right: 100px;
   position: relative;
-}
-
-footer div img {
-  margin-top: 55px;
-  margin-left: 10.5px;
-  margin-right: 10.5px;
-  border-radius: 8px;
 }
 
 footer div.image .merapi,
@@ -884,7 +904,6 @@ footer .text-pic .img-1 .element {
   position: absolute;
   bottom: 0;
   right: 0;
-  left: 660px;
 }
 
 footer .text-pic .img-1 .elementTwo {
@@ -909,27 +928,22 @@ footer div.texts2 {
 
 footer .descOne {
   width: 100%;
+  margin-left: 131px;
 }
 
 footer .stars {
   color: #FFBB0C;
-  margin-left: 135px;
   margin-top: 100px;
-}
-
-footer .stars i {
-  padding-right: 8px;
-  padding-left: 8px;
 }
 
 footer .text-description p.d-text {
   font-family: 'Mulish', sans-serif;
   font-size: 24px;
   line-height: 36px;
-  margin-left: 100px;
   margin-top: 30px;
   width: 450px;
   height: 144.03px;
+  margin-right: unset
 }
 
 footer .text-description img {
@@ -943,7 +957,6 @@ footer .s-text p.s-text-1 {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
   line-height: 48px;
-  margin-left: 131px;
   margin-top: 40px;
   width: 183px;
   height: 48px;
@@ -956,14 +969,13 @@ footer .s-text p.d-text-1 {
   color: rgba(57, 57, 57, 0.85);
   font-size: 18px;
   line-height: 48px;
-  margin-left: 131px;
   width: 124px;
   height: 48px;
   font-weight: 400;
 }
 
 footer .name {
-  text-align: center;
+  text-align: left;
 }
 
 .link-social svg {
@@ -1044,6 +1056,7 @@ form .container .profile h5 {
 
 form .container img {
   border: unset;
+  border-color: unset;
 }
 
 button {
@@ -1071,13 +1084,18 @@ button {
 }
 
 .button-dark {
-  background-color: #393939;
+  background-color: #3A2C1E;
   border: unset;
 }
 
 .button-gray {
-  background-color: rgba(203, 203, 212, 0.27);
+  background-color: #C2A78B;
   border: unset;
+}
+
+.profile-edit .photo-people {
+  width: 100%;
+  height: 100%;
 }
 
 .profile-edit .button-filled,
@@ -1090,7 +1108,7 @@ button {
 }
 
 .profile-edit .button-dark {
-  color: #FFCD61;
+  color: #DED0C1;
 }
 
 .profile-edit .big-name {
@@ -1100,13 +1118,13 @@ button {
 
 .profile-edit .details {
   font-weight: bold;
-  color: #B8BECD;
+  color: #C2A78B;
   font-size: 24px;
 }
 
 .profile-edit .edit-photo {
   position: absolute;
-  background: #FFCD61;
+  background: #70553B;
   width: 50px;
   height: 50px;
   border-radius: 25px;
@@ -1145,7 +1163,7 @@ button {
 
 .radio-button input:checked~.checkmark {
   border-color: #393939;
-  background-color: #FFCD61;
+  background-color: #C2A78B;
 }
 
 .input-underline {
@@ -1224,7 +1242,7 @@ div.login .text2 form div button.button-email {
   border-radius: 10px;
   text-align: center;
   font-size: 24px;
-  background-color: #FFFFFF;
+  background-color: #FAF8F6;
   box-shadow: 0px 0px 20px rgba(78, 78, 78, 0.4);
   color: black;
   font-weight: 900;
@@ -1239,7 +1257,7 @@ div.login .text2 form div button.button-login-2 {
   width: 490px;
   border-radius: 10px;
   text-align: center;
-  background-color: #393939;
+  background-color: #3A2C1E;
   border: none;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 }
@@ -1247,7 +1265,7 @@ div.login .text2 form div button.button-login-2 {
 .login .text2 form div button.button-login-2 a {
   text-decoration: none;
   font-family: 'Nunito', sans-serif;
-  color: #FFCD61;
+  color: #C2A78B;
   font-weight: 900;
   border: none;
   height: 79px;
@@ -1311,6 +1329,13 @@ div.login .text2 .link-social {
   .list .bike .image {
     display: grid;
     width: 100%;
+  }
+
+  .list .image .popular,
+  .list .image .cars,
+  .list .image .motorcycle,
+  .list .image .bike {
+    position: unset;
   }
 }
 
@@ -1388,7 +1413,6 @@ p.val {
   font-weight: 600;
   font-size: 17px;
   line-height: 25px;
-
 }
 
 .list .image img {
@@ -1418,10 +1442,20 @@ p.val {
 
 /* style.css view-more-detail.html */
 
-.tombol .searching {
+.tombol .form-control {
   border-color: #A57E57;
-  color: #FAF8F6;
+  color: #A57E57;
+  background-color: #FAF8F6;
 }
+
+.tombol input::placeholder {
+  color: #A57E57;
+}
+
+.tombol input:focus {
+  outline: none;
+}
+
 
 .tombol .btn-primary {
   background-color: #A57E57;
@@ -1736,7 +1770,7 @@ input::-webkit-inner-spin-button {
 }
 
 .payment .info-pay button.text-5 {
-  background: #FFCD61;
+  background: #A57E57;
   border-radius: 10px;
   width: 240px;
   height: 42px;
@@ -1911,7 +1945,7 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
   font-size: 32px;
   line-height: 24px;
-  color: #393939;
+  color: #A57E57;
   margin-top: 25px;
 }
 
