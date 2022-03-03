@@ -29,7 +29,7 @@ export default class NavbarHome extends Component {
                 </li>
               </ul>
               <div className="toggled-action d-flex align-items-center">
-                <Link to='/' className="button-outline mx-3" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Login</p> </Link>
+                <Link to='/login' className="button-outline mx-3" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Login</p> </Link>
                 <Link to='/register' className="button-filled" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Register</p> </Link>
               </div>
             </div>
