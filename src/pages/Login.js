@@ -21,7 +21,6 @@ export const Login = () => {
     dispatch(login(email, password))
   }
 
-  
   return (
     <>
     {auth.token!==null && <Navigate to='/' />}
