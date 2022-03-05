@@ -1,44 +1,35 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import google from '../assets/images/google.png'
 import logo from '../assets/images/logo.png'
-// import Input from '../components/Input'
-// import Button from '../components/Button'
 import { Navigate } from 'react-router-dom'
+import { login } from '../redux/actions/auth'
 
-export const Login = ({auth, dispatch, counter}) => {
-
+export const Login = () => {
+  const dispatch = useDispatch()
+  const auth = useSelector(state => state.auth)
   useEffect(()=>{
     console.log(auth);
   })
 
   const onLogin = (e)=>{
     e.preventDefault()
-    dispatch({
-      type: 'LOGIN',
-      payload: {
-        email: e.target.elements['email'].value,
-        password: e.target.elements['password'].value
-      }
-    })
+    const email = e.target.elements['email'].value
+    const password = e.target.elements['password'].value
+    dispatch(login(email, password))
   }
-
-//   const onLogout = ()=>{
-//     dispatch({
-//       type: 'LOGOUT'
-//     })
-//   }
 
   return (
     <>
-    {auth.token!==null && <Navigate to='/homepage' />}
+    {auth.token!==null && <Navigate to='/' />}
     <div className="container-fluid g-0 login">
         <div className="row g-0">
             <div className="col-6 bg-image"></div>
             <div className="col text2">
                 <form onSubmit={onLogin} className="overflow-auto">
+                    {auth.isError && auth.errorMsg && <div className='alert alert-danger mb-5'>{auth.errorMsg}</div>}
                     <h1 className="text-login">Login</h1>
                     <div>
                         <div className="input-group-md">
@@ -48,7 +39,7 @@ export const Login = ({auth, dispatch, counter}) => {
                             <input  className='mb-5 form-control' type='password' id='password' placeholder='Password'  />
                         </div>
                         <div className="mb-3">
-                            <button type='submit' className='button-send btn btn-primary' >Login</button>
+                            <button disabled={auth.isLoading} type='submit' className='button-send btn btn-primary' >Login</button>
                         </div>
                         <div className="mb-3">
                             <Link to='/ForgotPassword' className="nav-link active" aria-current="page">Forgot Password?</Link>
@@ -61,7 +52,7 @@ export const Login = ({auth, dispatch, counter}) => {
                             <button className="button-mail"> <img src={google} alt="Logo" /><span>    Login with Google     </span> </button> 
                         </div>
                         <div>
-                            <button className="button-register"><a href="/register.html">Sign Up</a></button>
+                            <button className="button-register"><Link to='/register'>Sign Up</Link></button>
                         </div>
                     </div>
                 </form>
@@ -90,8 +81,10 @@ export const Login = ({auth, dispatch, counter}) => {
   )
 }
 
-const mapStateToProps = state => ({auth:state.auth, counter: state.counter})
+export default Login
 
-const mapDispatchToProps = dispatch => ({dispatch})
+// const mapStateToProps = state => ({auth:state.auth, counter: state.counter})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+// const mapDispatchToProps = dispatch => ({dispatch})
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Login)
