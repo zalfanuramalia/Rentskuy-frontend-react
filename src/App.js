@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import VehicleType from './pages/VehicleType'
-import ViewMoreDetail from './pages/ViewMoreDetail'
+import ViewMorePopular from './pages/ViewMorePopular'
 import NavbarHome from './components/NavbarHome'
 import Detail from './pages/Detail'
 import NotFound from './helpers/NotFound'
@@ -15,53 +16,102 @@ import ViewMoreCar from './pages/ViewMoreCar'
 import ViewMoreMotorbike from './pages/ViewMoreMotorbike'
 import History from './pages/History'
 import ViewMoreBike from './pages/ViewMoreBike'
-import Homepage from './pages/Homepage'
 import Button from './components/Button'
 import { unstable_HistoryRouter as HistoryRouter, Route, Routes } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
-export default class App extends Component {
-    componentDidMount(){
-      console.log(this.props)
+import { getDataUser } from './redux/actions/auth'
+
+const App = () => {
+  const auth = useSelector(state=>state.auth)
+  const history = createBrowserHistory({window})
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    const token = window.localStorage.getItem('token')
+    if(token){
+      dispatch({
+        type: 'AUTH_LOGIN_FULFILLED',
+        payload: {
+          data: {
+            results: {
+              token
+            }
+          }
+        }
+      })
+      dispatch(getDataUser(token))
     }
-    // state = {
-    //     isLogged: false,
-    //     greetings:''
-    // }
-    history = createBrowserHistory()
-  render() {
-    return (
-      <>
-      <HistoryRouter history={this.history}>
+  },[dispatch, auth.token])
+  return (
+    <HistoryRouter history={history}>
       <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='homepage' element={<Homepage />} />
-            <Route path='navbar' element={<NavbarHome />} />
-            <Route path='login' element={<Login />} />
-            <Route path='vehicleType' element={<VehicleType />} />
-            <Route path='viewDetail' element={<ViewMoreDetail />} />
-            <Route path='vehicles/:id' element={<Detail />} />
-            <Route path='notFound' element={<NotFound />} />
-            <Route path='register' element={<Register />} />
-            <Route path='profil' element={<Profil />} />
-            <Route path='reservation' element={<Reservation />} />
-            <Route path='payment' element={<Payment />} />
-            <Route path='forgotPassword' element={<ForgotPassword />} />
-            <Route path='viewMoreCar' element={<ViewMoreCar />} />
-            <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
-            <Route path='history' element={<History />} />
-            <Route path='viewMoreBike' element={<ViewMoreBike />} />
-            <Route path='button' element={<Button />} />
-          </Routes>
-      </HistoryRouter>
-      {/* <BrowserRouter>
-      
-      </BrowserRouter> */}
-        
-      </>
-        // <div className=' vh-100 '>
-        //     {!this.state.isLogged && <Login onLogin={(value)=>{this.setState({isLogged: value})}} />}
-        //     {this.state.isLogged && <Home />}
-        // </div>
-    )
-  }
+        <Route path='/' element={<Home />} />
+        <Route path='navbar' element={<NavbarHome />} />
+        <Route path='login' element={<Login />} />
+        <Route path='vehicleType' element={<VehicleType />} />
+        <Route path='viewPopular' element={<ViewMorePopular />} />
+        <Route path='vehicles/:id' element={<Detail />} />
+        <Route path='notFound' element={<NotFound />} />
+        <Route path='register' element={<Register />} />
+        <Route path='profil' element={<Profil />} />
+        <Route path='reservation/:id' element={<Reservation />} />
+        <Route path='payment/:id' element={<Payment />} />
+        <Route path='forgotPassword' element={<ForgotPassword />} />
+        <Route path='viewMoreCar' element={<ViewMoreCar />} />
+        <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
+        <Route path='history' element={<History />} />
+        <Route path='viewMoreBike' element={<ViewMoreBike />} />
+        <Route path='button' element={<Button />} />
+      </Routes>
+    </HistoryRouter>
+  )
 }
+
+export default App
+
+// export default class App extends Component {
+//     componentDidMount(){
+//       console.log(this.props)
+//     }
+//     // state = {
+//     //     isLogged: false,
+//     //     greetings:''
+//     // }
+//     history = createBrowserHistory()
+//   render() {
+//     return (
+//       <>
+//       <HistoryRouter history={this.history}>
+//       <Routes>
+//             <Route path='/' element={<Home />} />
+//             <Route path='homepage' element={<Homepage />} />
+//             <Route path='navbar' element={<NavbarHome />} />
+//             <Route path='login' element={<Login />} />
+//             <Route path='vehicleType' element={<VehicleType />} />
+//             <Route path='viewPopular' element={<ViewMorePopular />} />
+//             <Route path='vehicles/:id' element={<Detail />} />
+//             <Route path='notFound' element={<NotFound />} />
+//             <Route path='register' element={<Register />} />
+//             <Route path='profil' element={<Profil />} />
+//             <Route path='reservation' element={<Reservation />} />
+//             <Route path='payment' element={<Payment />} />
+//             <Route path='forgotPassword' element={<ForgotPassword />} />
+//             <Route path='viewMoreCar' element={<ViewMoreCar />} />
+//             <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
+//             <Route path='history' element={<History />} />
+//             <Route path='viewMoreBike' element={<ViewMoreBike />} />
+//             <Route path='button' element={<Button />} />
+//             <Route path='buttons' element={<Buttons />} />
+//           </Routes>
+//       </HistoryRouter>
+//       {/* <BrowserRouter>
+      
+//       </BrowserRouter> */}
+        
+//       </>
+//         // <div className=' vh-100 '>
+//         //     {!this.state.isLogged && <Login onLogin={(value)=>{this.setState({isLogged: value})}} />}
+//         //     {this.state.isLogged && <Home />}
+//         // </div>
+//     )
+//   }
+// }
