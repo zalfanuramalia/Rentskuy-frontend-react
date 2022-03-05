@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import NavbarHome from '../components/NavbarHome'
@@ -7,24 +7,18 @@ import people from '../assets/images/people.png'
 import {FaStar} from 'react-icons/fa'
 import { Link} from 'react-router-dom'
 import { FaChevronRight } from 'react-icons/fa'
-import {default as axios} from 'axios'
+import { getPopularHome } from '../redux/actions/popular'
+import { connect, useSelector } from 'react-redux'
+import Skeleton from  'react-loading-skeleton'
 
-export const Home = () => {
-    const [popular, setPopular] = useState([])
+export const Home = ({getPopularHome}) => {
+    const {popular: populars} = useSelector (state => state)
 
     const navigate = useNavigate()
-
     
   useEffect (()=>{
-    getPopular()
+    getPopularHome()
   },[])
-
-  const getPopular = async () => {
-    const {data: data2} = await axios.get ('http://localhost:8080/history/vehicles')
-    console.log(data2)
-    setPopular(data2.result)
-  }
-
 
 const goToDetail = (id)=> {
   navigate(`/vehicles/${id}`)
@@ -84,9 +78,11 @@ const goToDetail = (id)=> {
             <Link to='/viewDetail' className='nav-link hai'>view all <FaChevronRight /> </Link>
           </div>
           <div className="image container">
-        <div className="row">
-          {popular.map((data2, idx)=>{
-            console.log(data2.image)
+          {populars.isloading &&
+            <Skeleton height={150} containerClassName='row' count={8} wrapper={({children})=>(<div className='col-md-3'>{children}</div>)} />
+          }
+          {!populars.isloading && <div className="row">
+            {populars.popular.map((data2, idx)=>{
             return(
               <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
@@ -96,7 +92,7 @@ const goToDetail = (id)=> {
               </div>
             )
           })}
-        </div>
+        </div>}
       </div>
           <div className="text-pic d-inline-block position-relative img-1">
             <img className='element' src={element} alt="Element" />            
@@ -131,5 +127,9 @@ const goToDetail = (id)=> {
     )
   }
 
-  export default Home
+const mapStateToProps = state => ({popular: state.popular})
+
+const mapDispatchToProps = {getPopularHome}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
 

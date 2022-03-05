@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {default as axios} from 'axios'
+import { connect, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams} from 'react-router-dom'
+import { getBike, filterBike } from '../redux/actions/bike'
+import Skeleton from  'react-loading-skeleton'
 import Layout from '../components/Layout'
 
-export const ViewMoreBike = () => {
+export const ViewMoreBike = ({getBike, filterBike}) => {
+  const {bike: bikes} = useSelector (state => state)
   const [bike, setBike] = useState([])
   const [pages, setPages] = useState({})
   const [errorMsg, setErrorMsg] = useState(null)
@@ -31,12 +34,6 @@ export const ViewMoreBike = () => {
         getBike()
     }
   },[])
-
-  const getBike = async () => {
-    const {data} = await axios.get ('http://localhost:8080/vehicles/category/3?limit=50')
-    console.log(data)
-    setBike(data.results)
-  }
 
   const getToData = async (url1, replace = false) => {
     try{
@@ -64,13 +61,12 @@ export const ViewMoreBike = () => {
 
     const toSearch = async(event)=>{
       event.preventDefault();
-      const url = (brand)=> `http://localhost:8080/vehicles/category/3?search=${brand}&location=${location}&type=${type}&payment=${payment}&limit=50`
       const brand = event.target.elements["search"].value
       const location = event.target.elements["location"].value
       const type = event.target.elements["type"].value
       const payment = event.target.elements["payment"].value
       setSearchParams({brand, location, type, payment})
-      await getToData(url(brand, location, type, payment), true)
+      filterBike(brand, location, type, payment)
     }
   
     const goCarDetail = (id)=> {
@@ -125,8 +121,11 @@ export const ViewMoreBike = () => {
         <p class="click">Click item to see details and reservation</p>
       </div>
       <div className="image container">
-        <div className="row">
-          {bike.map((data, idx)=>{
+        {bikes.isloading &&
+          <Skeleton height={150} containerClassName='row' count={8} wrapper={({children})=>(<div className='col-md-3'>{children}</div>)} />
+        }
+        {!bikes.isloading && <div className="row">
+          {bikes.bike.map((data, idx)=>{
             return(
               <div key={String(data.id)} onClick={()=>goCarDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
@@ -136,7 +135,7 @@ export const ViewMoreBike = () => {
               </div>
             )
           })}
-        </div>
+        </div>}
         {/* {page.next!==null&&
           <div className='row my-5'>
             <div className='col-md-12 text-center'>
@@ -155,4 +154,8 @@ export const ViewMoreBike = () => {
   )
 }
 
-export default ViewMoreBike
+const mapStateToProps = state => ({bike: state.bike})
+
+const mapDispatchToProps = {getBike, filterBike}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewMoreBike)

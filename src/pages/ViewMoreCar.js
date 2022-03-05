@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {default as axios} from 'axios'
 import { connect, useSelector } from 'react-redux'
@@ -120,7 +119,7 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
         </div>
       </div>
       <div>
-          <p class="click">Click item to see details and reservation</p>
+          <p className="click">Click item to see details and reservation</p>
       </div>
       <div className="image container">
         {cars.isLoading &&

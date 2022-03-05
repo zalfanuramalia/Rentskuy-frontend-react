@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {default as axios} from 'axios'
+import { connect, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams} from 'react-router-dom'
+import { getPopular, filterPopular } from '../redux/actions/popular'
+import Skeleton from  'react-loading-skeleton'
 import Layout from '../components/Layout'
 
-export const ViewMoreDetail = () => {
+export const ViewMorePopular = ({getPopular, filterPopular}) => {
+  const {popular: populars} = useSelector (state => state)
   const [popular, setPopular] = useState([])
   const [page, setPage] = useState({})
   const [errorMsg, setErrorMsg] = useState(null)
@@ -30,12 +33,6 @@ export const ViewMoreDetail = () => {
         getPopular()
     }
   },[])
-
-  const getPopular = async () => {
-    const {data: data2} = await axios.get ('http://localhost:8080/history/vehicles?limit=50')
-    console.log(data2)
-    setPopular(data2.result)
-  }
 
   const getNextData = async (url, replace = false) => {
     try{
@@ -63,13 +60,12 @@ export const ViewMoreDetail = () => {
 
     const onSearch = async(event)=>{
       event.preventDefault();
-      const url = (brand, location, type, payment)=> `http://localhost:8080/history/vehicles?search=${brand}&location=${location}&type=${type}&payment=${payment}&limit=50`
       const brand = event.target.elements["search"].value
       const location = event.target.elements["location"].value
       const type = event.target.elements["type"].value
       const payment = event.target.elements["payment"].value
       setSearchParams({brand, location, type, payment})
-      await getNextData(url(brand, location, type, payment), true)
+      filterPopular(brand, location, type, payment)
     }
   
     const goToDetail = (id)=> {
@@ -125,9 +121,11 @@ export const ViewMoreDetail = () => {
         <p class="click">Click item to see details and reservation</p>
       </div>
       <div className="image container">
-        <div className="row">
-          {popular.map((data2, idx)=>{
-            console.log(data2.image)
+        {populars.isloading &&
+          <Skeleton height={150} containerClassName='row' count={8} wrapper={({children})=>(<div className='col-md-3'>{children}</div>)} />
+        }
+        {!populars.isloading && <div className="row">
+          {populars.popular.map((data2, idx)=>{
             return(
               <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
@@ -137,7 +135,7 @@ export const ViewMoreDetail = () => {
               </div>
             )
           })}
-        </div>
+        </div>}
         {/* {page.next!==null&&
           <div className='row my-5'>
             <div className='col-md-12 text-center'>
@@ -156,4 +154,8 @@ export const ViewMoreDetail = () => {
   )
 }
 
-export default ViewMoreDetail
+const mapStateToProps = state => ({car: state.car})
+
+const mapDispatchToProps = {getPopular, filterPopular}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewMorePopular)
