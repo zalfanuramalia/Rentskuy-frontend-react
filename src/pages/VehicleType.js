@@ -74,13 +74,12 @@ export const VehicleType = () => {
           <p className="hei">Popular in Town </p>
         </div>
         <div>
-          <Link to='/viewDetail' className='nav-link hai'>view all <FaChevronRight /> </Link>
+          <Link to='/viewPopular' className='nav-link hai'>view all <FaChevronRight /> </Link>
         </div>      
       </div>
       <div className="image container">
         <div className="row">
           {popular.map((data2, idx)=>{
-            console.log(data2.image)
             return(
               <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                 <div className='position-relative mb-2'>
