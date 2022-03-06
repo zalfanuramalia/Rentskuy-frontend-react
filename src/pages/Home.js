@@ -41,7 +41,7 @@ const goToDetail = (id)=> {
                     <option value="1">Yogyakarta</option>
                     <option value="2">Bandung</option>
                   </select>
-                  <i class="fa-solid fa-chevron-down"></i>
+                  <i className="fa-solid fa-chevron-down"></i>
                 </div>
                 <div className="my-2 col-md-3 col-md-6 g-0 form-select-sm select-2 position-absolute">
                   <select className="form-select" aria-label="Default select example">
@@ -50,7 +50,7 @@ const goToDetail = (id)=> {
                     <option value="2">Motorbike</option>
                     <option value="3">Bike</option>
                   </select>
-                  <i class="fa-solid fa-chevron-down"></i>
+                  <i className="fa-solid fa-chevron-down"></i>
                 </div>
               </div>
               <div className="row type-2">
@@ -60,7 +60,7 @@ const goToDetail = (id)=> {
                     <option value="1">Cash</option>
                     <option value="2">Transfer</option>
                   </select>
-                  <i class="fa-solid fa-chevron-down"></i>
+                  <i className="fa-solid fa-chevron-down"></i>
                 </div>
                 <div className="my-2 col-md-3 col-md-6 g-0 select-2 position-absolute">
                   <input className="form-control" type="date" name="date" placeholder='Date' />
@@ -75,7 +75,7 @@ const goToDetail = (id)=> {
             <div>
               <p className="hei">Popular in Town </p>
             </div>
-            <Link to='/viewDetail' className='nav-link hai'>view all <FaChevronRight /> </Link>
+            <Link to='/viewPopular' className='nav-link hai'>view all <FaChevronRight /> </Link>
           </div>
           <div className="image container">
           {populars.isloading &&
