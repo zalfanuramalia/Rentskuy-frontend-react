@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
-import logo from '../assets/images/logo.png'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/images/logo.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
+import people from '../assets/images/people-2.png'
 
-export default class NavbarHome extends Component {
-    render() {
+export const NavbarHome = () => {
+        const dispatch = useDispatch()
+        const auth = useSelector(state => state.auth)
+        console.log(auth)
         return (
             <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container">
@@ -27,14 +32,31 @@ export default class NavbarHome extends Component {
                 <li className="nav-item">
                   <a className="nav-link" href="/Home">About</a>
                 </li>
+                {auth.token!==null && <div className="toggled-action d-flex align-items-center">
+                <li><Link to='/profil' className='profile-nav'><img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" /></Link></li>
+                <li className='nav-item dropdown'>
+                  <button className="nav-link dropdown-toggle profile-toggle" href="/" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">{auth.userData.email}</button>
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><div className='navbar-text users' >{auth.userData.name}</div></li>
+                    <li>
+                      {auth.token===null && <Navigate to='/login' />}
+                      <button onClick={()=>dispatch({type: 'AUTH_LOGOUT'})} className='button-outline mx-5 my-4' style={{textDecoration:"none"}}><p className='mx-5 my-2'>Logout</p></button>
+                    </li>
+                  </ul>
+                </li></div>}
+                <li>
+                {auth.token===null && <div className='navbar-text'>
+                <div className="toggled-action d-flex align-items-center">
+                  <Link to='/login' className="button-outline mx-3" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Login</p> </Link>
+                  <Link to='/register' className="button-filled" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Register</p> </Link>
+                </div>
+              </div>}
+                </li>
               </ul>
-              <div className="toggled-action d-flex align-items-center">
-                <Link to='/login' className="button-outline mx-3" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Login</p> </Link>
-                <Link to='/register' className="button-filled" style={{textDecoration:"none"}} type='button'> <p className='mx-5 my-2'>Register</p> </Link>
-              </div>
             </div>
           </div>
         </nav>
         )
-    }
 }
+
+export default NavbarHome
