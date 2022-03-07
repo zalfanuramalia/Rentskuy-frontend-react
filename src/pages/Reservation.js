@@ -51,7 +51,7 @@ export const Reservation = ({getDetail}) => {
       <Layout>
         <div className="payment">
         <div className="reserve">
-          <div onClick={goBack} className="back-btn d-flex justify-content-start back" style={{cursor: 'pointer'}}>
+          <div onClick={goBack} className="back-btn d-flex justify-content-start" style={{cursor: 'pointer'}}>
             <span><FaChevronLeft /></span> 
             <p>Reservation</p> 
           </div>
@@ -66,7 +66,7 @@ export const Reservation = ({getDetail}) => {
                 <h1 className="text-1">{detail.detail?.brand} </h1>
                 <h1 className="text-2"> {detail.detail?.location}</h1>
                 <p className="text-3">{detail.detail?.can_prepayment}</p>
-                <div className='d-flex justify-content-center align-items-center counting'>         
+                <div className='d-flex align-items-center qty'>         
                   <button className="minus " onClick={onDecrement}>-</button>
                   <h1 className="count">{buttons.value}</h1>
                   <button className="plus "  onClick={onIncrement}>+</button>
@@ -90,7 +90,7 @@ export const Reservation = ({getDetail}) => {
             </div>
           </div>
         </div>
-        <div className="pay-1">
+        <div className="pay-1 container-fluid">
           <button onClick={()=>goPayment(id)} style={{cursor: 'pointer'}} className="submit-button nav-link active">
             <NumberFormat value={detail.detail?.price * buttons.value} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Pay now : Rp. '}  >Rp.{vehicles?.price}/day</NumberFormat>
           </button>
