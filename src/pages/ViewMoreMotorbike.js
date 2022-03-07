@@ -21,16 +21,14 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
     console.log(setMotorbike)
     const brand = searchParams.get('brand')
     const location = searchParams.get('location')
-    const type = searchParams.get('type')
     const payment = searchParams.get('payment')
     
-    if(brand || location || type || payment){
-        const url1 = (brand)=> `http://localhost:8080/vehicles/category/2?search=${brand}&location=${location}&type=${type}&payment=${payment}`
+    if(brand || location || payment){
+        const url1 = (brand)=> `http://localhost:8080/search/2?brand=${brand}&location=${location}&payment=${payment}`
         document.getElementById('search').elements['search'].value = brand
         document.getElementById('search').elements['search'].value = location
-        document.getElementById('search').elements['search'].value = type
         document.getElementById('search').elements['search'].value = payment
-        getToData(url1(brand, location, type, payment), true)
+        getToData(url1(brand, location, payment), true)
     }else{
         getMotorbike()
     }
@@ -64,10 +62,9 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
       event.preventDefault();
       const brand = event.target.elements["search"].value
       const location = event.target.elements["location"].value
-      const type = event.target.elements["type"].value
       const payment = event.target.elements["payment"].value
-      setSearchParams({brand, location, type, payment})
-      filterMotorbike(brand, location, type, payment)
+      setSearchParams({brand, location, payment})
+      filterMotorbike(brand, location, payment)
     }
   
     const goCarDetail = (id)=> {
@@ -84,12 +81,6 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
               <option value='' style={{display: 'none'}}>Location</option>
               <option value="cars">Yogyakarta</option>
               <option value="motorbike">Bandung</option>
-            </select>
-            <select name='type' className='form-control'>
-              <option value='' style={{display: 'none'}}>Type</option>
-              <option value="Car">Car</option>
-              <option value="Motorcycle">Motorcycle</option>
-              <option value="Bike">Bike</option>
             </select>
             <select name='payment' className='form-control'>
               <option value='' style={{display: 'none'}}>Payment</option>
