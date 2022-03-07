@@ -44,19 +44,20 @@ export const VehicleType = () => {
   }
 
   const getCar = async ()=> {
-    const {data}= await axios.get ('http://localhost:8080/vehicles/category/1')
+    const {data}= await axios.get ('http://localhost:8080/search/1?limit=4')
+    console.log(data)
     setCar(data.results)
     setPage(data.pageInfo)
   }
 
   const getMotorbike = async () => {
-    const {data: data1}= await axios.get ('http://localhost:8080/vehicles/category/2')
+    const {data: data1}= await axios.get ('http://localhost:8080/search/2?limit=4')
     setMotorbike(data1.results)
     setPage(data1.pageInfo)
   }
 
   const getBike = async () => {
-    const {data: data1}= await axios.get ('http://localhost:8080/vehicles/category/3')
+    const {data: data1}= await axios.get ('http://localhost:8080/search/3?limit=4')
     setBike(data1.results)
     setPage(data1.pageInfo)
   }
