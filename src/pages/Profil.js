@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import { FaPencilAlt } from 'react-icons/fa'
-import profil from '../assets/images/people-2.png'
-import Footer from '../components/Footer'
+import React from 'react'
 import Layout from '../components/Layout'
+import Footer from '../components/Footer'
+import profil from '../assets/images/people-2.png'
+import { FaPencilAlt } from 'react-icons/fa'
+import {  useSelector } from 'react-redux'
 
-export default class Profil extends Component {
-  render() {
+export const Profil = () => {
+  const auth = useSelector(state => state.auth)
     return (
       <Layout>
         <form className="profile-edit">
@@ -21,11 +22,11 @@ export default class Profil extends Component {
           </div>
         </div>
         <div>
-          <h1 className="big-name">Samantha Doe</h1>
+          <h1 className="big-name">{auth.userData.name}</h1>
         </div>
         <div className="details">
-          <div>samanthadoe@mail.com</div>
-          <div>+62833467823</div>
+          <div>{auth.userData.email}</div>
+          <div>{auth.userData.number}</div>
           <div>Has been active since 2013</div>
         </div>
       </div>
@@ -50,15 +51,15 @@ export default class Profil extends Component {
       </div>
       <div className="mb-5">
         <label>Email: </label>
-        <input className="d-block w-100 input-underline" type="email" value="zulaikha17@gmail.com" />
+        <input className="d-block w-100 input-underline" type="email" value={auth.userData.name} />
       </div>
       <div className="mb-5">
         <label>Address: </label>
-        <textarea className="d-block w-100 input-underline">Iskandar Street no. 67 Block A Near Bus Stop</textarea>
+        <textarea className="d-block w-100 input-underline">{auth.userData.address}</textarea>
       </div>
       <div className="mb-5">
         <label>Mobile Number: </label>
-        <input className="d-block w-100 input-underline" type="text" value="(+62)813456782"/>
+        <input className="d-block w-100 input-underline" type="text" value={auth.userData.number}/>
       </div>
       <div className="mb-5">
         <h5>Identity</h5>
@@ -89,5 +90,19 @@ export default class Profil extends Component {
   <Footer />
       </Layout>
     )
-  }
 }
+
+export default Profil
+
+
+// import React, { Component } from 'react'
+// import { FaPencilAlt } from 'react-icons/fa'
+
+// import Footer from '../components/Footer'
+// import Layout from '../components/Layout'
+
+// export default class Profil extends Component {
+//   render() {
+
+//   }
+// }
