@@ -55,8 +55,7 @@ export const Detail = ({getDetail}) => {
         <span><FaChevronLeft /></span> 
         <p>Detail</p> 
       </div>
-      <div className="vehicles">
-        <div className="vehicles-details d-flex flex-wrap position-relative">
+      <div className="vehicles-details d-flex flex-wrap position-relative justify-content-evenly">
           <div className="main-image">
             <img className='img-fluid' src={detail.detail?.image} alt="charImg" />
           </div>  
@@ -78,11 +77,10 @@ export const Detail = ({getDetail}) => {
               </div>
             </div>
           </div>
-        </div>
       </div>
       <form className="position-relative container reserve">
         <div className="quantity row">
-          <div className='col-6 d-flex justify-content-between two-image py-4'>
+          <div className='col d-flex justify-content-between two-image my-5'>
             <div className='left'>
               <FaChevronLeft />
             </div>             
@@ -90,13 +88,13 @@ export const Detail = ({getDetail}) => {
             <img className='img-fluid' src={detail.detail?.image} alt='charImg' />
             <div className='right'>
               <FaChevronRight />
-            </div>         
-            <div className='d-flex justify-content-center align-items-center counting'>         
+            </div>           
+          </div>
+          <div className='col d-flex justify-content-center align-items-center counting'>         
             <button className="minus " onClick={onDecrement}>-</button>
             <h1 className="count">{buttons.value}</h1>
             <button className="plus "  onClick={onIncrement}>+</button>
-          </div>   
-          </div>
+          </div> 
         </div>
       </form>
       <div className="button container">
