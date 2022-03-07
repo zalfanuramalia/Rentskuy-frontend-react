@@ -1,10 +1,27 @@
-import React, { Component } from 'react'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import { FaSearch } from 'react-icons/fa'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
-export default class History extends Component {
-  render() {
+import Footer from '../components/Footer'
+import { FaSearch } from 'react-icons/fa'
+import { getDetail } from '../redux/actions/detail'
+import { connect, useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import NumberFormat from 'react-number-format'
+
+export const History = ({getDetail}) => {
+  const {detail} = useSelector(state => state)
+  const buttons = useSelector(state=>state.buttons)
+  const [vehicles, setVehicles] = useState({})
+  const dispatch = useDispatch()
+
+  const {id} = useParams()
+
+  useEffect(()=>{
+    console.log(buttons);
+  }, [buttons])
+
+  useEffect(()=>{
+    getDetail(id)
+  },[])
     return (
       <Layout>
         <div className="history-1">
@@ -44,28 +61,16 @@ export default class History extends Component {
         </div>
         <div className="d-flex image-1">
           <div className="img">
-            <img src="./assets/images/vespa-matic.png" alt="VespaMatic" />
+            <img src={detail.detail?.image} alt={detail.detail?.brand} />
           </div>
           <div className="desc">
             <div>
-              <p className="desc-1">Vespa Matic </p>
+              <p className="desc-1">{detail.detail?.brand} </p>
               <p className="desc-2">Jan 18 to 21 2021</p>
-              <p className="desc-3">Prepayment : Rp. 245.000 </p>
-              <p className="desc-4">Has been returned</p>
+              <p className="desc-3">Payment : <NumberFormat value={detail.detail?.price * buttons.value} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Rp. '} ></NumberFormat> </p>
+              <p className="desc-4">{detail.detail?.createdAt}</p>
             </div>
           </div>
-        </div>
-        <div className="d-flex image-2">
-          <div>
-            <img src="./assets/images/vespa-matic-2.png" alt="VespaMatic" />
-          </div>
-          <div className="desc-again">
-            <p className="desc-1">Vespa Matic </p>
-            <p className="desc-2">Jan 18 to 21 2021</p>
-            <p className="desc-3">Prepayment : Rp. 245.000 </p>
-            <p className="desc-4">Has been returned</p>
-          </div>
-          <button>Delete</button>
         </div>
       </div>
       <div className="two">
@@ -90,5 +95,10 @@ export default class History extends Component {
   <Footer />
       </Layout>
     )
-  }
 }
+
+const mapStateToProps = state => ({detail: state.detail})
+
+const mapDispatchToProps = {getDetail}
+
+export default connect(mapStateToProps, mapDispatchToProps)(History)
