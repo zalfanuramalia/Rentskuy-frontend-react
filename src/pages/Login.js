@@ -10,9 +10,6 @@ import { login } from '../redux/actions/auth'
 export const Login = () => {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
-  useEffect(()=>{
-    console.log(auth);
-  })
 
   const onLogin = (e)=>{
     e.preventDefault()
@@ -36,16 +33,16 @@ export const Login = () => {
                     <h1 className="text-login">Login</h1>
                     <div>
                         <div className="input-group-md">
-                            <input  className='mb-5 form-control' type='email' id='email' placeholder='Email'  />
+                            <input  className='mb-5 form-control' type='email' name='email' placeholder='Email'  />
                         </div>
                         <div className="input-group-md">
-                            <input  className='mb-5 form-control' type='password' id='password' placeholder='Password'  />
+                            <input  className='mb-5 form-control' type='password' name='password' placeholder='Password'  />
                         </div>
                         <div className="mb-3">
                             <button disabled={auth.isLoading} type='submit' className='button-send btn btn-primary' >Login</button>
                         </div>
                         <div className="mb-3">
-                            <Link to='/ForgotPassword' className="nav-link active" aria-current="page">Forgot Password?</Link>
+                            <Link to='/ForgotPassword' className="nav-link active forpas" aria-current="page" >Forgot Password?</Link>
                         </div>
                         <div className="d-flex position-relative justify-content-center align-items-center flex-column my-5 text-again">
                             <div className="border border-bottom-1 w-100"></div>
