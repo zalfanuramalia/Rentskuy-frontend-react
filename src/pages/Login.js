@@ -29,7 +29,10 @@ export const Login = () => {
             <div className="col-6 bg-image"></div>
             <div className="col text2">
                 <form onSubmit={onLogin} className="overflow-auto">
-                    {auth.isError && auth.errorMsg && <div className='alert alert-danger mb-5'>{auth.errorMsg}</div>}
+                    {auth.isError && auth.errorMsg && <div className='alert alert-warning alert-dismissible fade show mt-5' role='alert'> 
+                      <span>{auth.errorMsg}</span>
+                      <button onClick={auth.isError} type="button" className="btn-close mt-2" data-bs-dismiss="alert" aria-label="Close"></button>                    
+                    </div>}
                     <h1 className="text-login">Login</h1>
                     <div>
                         <div className="input-group-md">
