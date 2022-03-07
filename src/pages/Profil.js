@@ -51,7 +51,7 @@ export const Profil = () => {
       </div>
       <div className="mb-5">
         <label>Email: </label>
-        <input className="d-block w-100 input-underline" type="email" value={auth.userData.name} />
+        <input className="d-block w-100 input-underline" type="email" />
       </div>
       <div className="mb-5">
         <label>Address: </label>
@@ -59,7 +59,7 @@ export const Profil = () => {
       </div>
       <div className="mb-5">
         <label>Mobile Number: </label>
-        <input className="d-block w-100 input-underline" type="text" value={auth.userData.number}/>
+        <input className="d-block w-100 input-underline" type="text"/>
       </div>
       <div className="mb-5">
         <h5>Identity</h5>
@@ -93,16 +93,3 @@ export const Profil = () => {
 }
 
 export default Profil
-
-
-// import React, { Component } from 'react'
-// import { FaPencilAlt } from 'react-icons/fa'
-
-// import Footer from '../components/Footer'
-// import Layout from '../components/Layout'
-
-// export default class Profil extends Component {
-//   render() {
-
-//   }
-// }
