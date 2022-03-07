@@ -10,7 +10,7 @@ import Layout from '../components/Layout'
 export const ViewMoreBike = ({getBike, filterBike}) => {
   const {bike: bikes} = useSelector (state => state)
   const [bike, setBike] = useState([])
-  const [pages, setPages] = useState({})
+  const [page, setPages] = useState({})
   const [errorMsg, setErrorMsg] = useState(null)
 
   const navigate = useNavigate()
@@ -97,11 +97,11 @@ export const ViewMoreBike = ({getBike, filterBike}) => {
             </select>
             <button type='submit' className='btn btn-primary'>Search</button>
           </form>
-          {errorMsg!==null&&
+          {bikes.isError &&
             <div className='row my-5'>
               <div className='col'>
                 <div className='alert alert-warning alert-dismissible fade show' role='alert'>
-                  <span>{errorMsg}</span>
+                  <span>{bikes.errorMsg}</span>
                   <button onClick={()=>setErrorMsg(null)} type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
               </div>
@@ -136,13 +136,13 @@ export const ViewMoreBike = ({getBike, filterBike}) => {
             )
           })}
         </div>}
-        {/* {page.next!==null&&
+        {page.next!==null&&
           <div className='row my-5'>
             <div className='col-md-12 text-center'>
-              <button onClick={()=>getNextData(page.next)} className='btn btn-primary'>Load More</button>
+              <button onClick={()=>getToData(page.next)} className='btn btn-primary load'>Load More</button>
             </div>
           </div>
-        } */}
+        }
       </div>
     </div>
     <div class="last">

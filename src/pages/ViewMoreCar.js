@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import Footer from '../components/Footer'
-import {default as axios} from 'axios'
 import { connect, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams} from 'react-router-dom'
 import { getCar, filterCar } from '../redux/actions/car'
 import Skeleton from  'react-loading-skeleton'
 import Layout from '../components/Layout'
+import http from '../helpers/http'
+import axios from 'axios'
 
 export const ViewMoreCar = ({getCar, filterCar}) => {
   const {car: cars} = useSelector (state => state)
   const [car, setCar] = useState([])
-  const [pages, setPages] = useState({})
+  const [page, setPages] = useState({})
   const [errorMsg, setErrorMsg] = useState(null)
 
   const navigate = useNavigate()
   let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(()=>{
-    console.log(setCar)
     const brand = searchParams.get('brand')
     const location = searchParams.get('location')
     const type = searchParams.get('type')
@@ -39,6 +39,7 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
     try{
         setErrorMsg(null)
         const {data} = await axios.get(url1)
+        console.log(data)
         if(replace){
             setCar(data.results)
         }else{
@@ -82,8 +83,8 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
             <input name='search' type="search" className="form-control searching" placeholder="Search vehicle" aria-label="Search" aria-describedby="search-addon" />
             <select name='location' className='form-control'>
               <option value='' style={{display: 'none'}}>Location</option>
-              <option value="cars">Yogyakarta</option>
-              <option value="motorbike">Bandung</option>
+              <option value="Yogyakarta">Yogyakarta</option>
+              <option value="Bandung">Bandung</option>
             </select>
             <select name='type' className='form-control'>
               <option value='' style={{display: 'none'}}>Type</option>
@@ -98,11 +99,11 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
             </select>
             <button type='submit' className='btn btn-primary'>Search</button>
           </form>
-          {errorMsg!==null&&
+          {cars.isError &&
             <div className='row my-5'>
               <div className='col'>
                 <div className='alert alert-warning alert-dismissible fade show' role='alert'>
-                  <span>{errorMsg}</span>
+                  <span>{cars.errorMsg}</span>
                   <button onClick={()=>setErrorMsg(null)} type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
               </div>
@@ -137,13 +138,13 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
             )
           })}
         </div>}
-        {/* {page.next!==null&&
+        {page.next!==null&&
           <div className='row my-5'>
             <div className='col-md-12 text-center'>
-              <button onClick={()=>getNextData(page.next)} className='btn btn-primary'>Load More</button>
+              <button onClick={()=>getToData(page.next)} className='btn btn-primary load'>Load More</button>
             </div>
           </div>
-        } */}
+        }
       </div>
     </div>
     <div class="last">

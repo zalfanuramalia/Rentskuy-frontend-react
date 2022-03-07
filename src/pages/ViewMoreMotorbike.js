@@ -6,6 +6,7 @@ import { useNavigate, useSearchParams} from 'react-router-dom'
 import { getMotorbike, filterMotorbike } from '../redux/actions/motorbike'
 import Skeleton from  'react-loading-skeleton'
 import Layout from '../components/Layout'
+import { Carousel } from 'bootstrap'
 
 export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
   const {motorbike: motorbikes} = useSelector (state => state)
@@ -97,11 +98,11 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
             </select>
             <button type='submit' className='btn btn-primary'>Search</button>
           </form>
-          {errorMsg!==null&&
+          {motorbikes.isError&&
             <div className='row my-5'>
               <div className='col'>
                 <div className='alert alert-warning alert-dismissible fade show' role='alert'>
-                  <span>{errorMsg}</span>
+                  <span>{motorbikes.errorMsg}</span>
                   <button onClick={()=>setErrorMsg(null)} type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
               </div>
@@ -136,13 +137,13 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
             )
           })}
         </div>}
-        {/* {page.next!==null&&
+        {pages.next!==null&&
           <div className='row my-5'>
             <div className='col-md-12 text-center'>
-              <button onClick={()=>getNextData(page.next)} className='btn btn-primary'>Load More</button>
+              <button onClick={()=>getToData(pages.next)} className='btn btn-primary load'>Load More</button>
             </div>
           </div>
-        } */}
+        }
       </div>
     </div>
     <div class="last">
