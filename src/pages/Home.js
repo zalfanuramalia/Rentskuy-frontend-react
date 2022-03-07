@@ -100,8 +100,9 @@ const goToDetail = (id)=> {
           <div className="texts2">
             <p>Testimonials</p>
           </div>
-          <div className="descOne row g-0">
-            <div className="col">
+          <div className='container'>
+            <div className='d-flex flex-wrap'>
+            <div className="text-left">
               <div className="stars text-left text-md-start d-flex justify-content-justify">
                 <FaStar />
                 <FaStar />
@@ -117,8 +118,9 @@ const goToDetail = (id)=> {
                 <p className="d-text-1">Founder Circle</p>
               </div>
             </div>
-            <div className="col name">
+            <div className="name align-items-center px-5">
               <img src={people} alt="People" />
+            </div>
             </div>
           </div>
         </footer>
