@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import Footer from '../components/Footer'
 import { FaChevronLeft } from 'react-icons/fa'
-import { https } from '../helpers/https'
 import { useParams } from 'react-router-dom'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { getDetail } from '../redux/actions/detail'
+import NumberFormat from 'react-number-format'
+import { Link } from 'react-router-dom'
 
 export const Payment = ({getDetail}) => {
+  const auth = useSelector(state => state.auth)
   const {detail} = useSelector(state => state)
   const [vehicles, setVehicles] = useState({})
   const buttons = useSelector(state=>state.buttons)
@@ -44,7 +46,7 @@ export const Payment = ({getDetail}) => {
       <Layout>
         <div className="payment">
     <     div className="reserve">
-            <div onClick={goBack} className="back-btn d-flex justify-content-start back" style={{cursor: 'pointer'}}>
+            <div onClick={goBack} className="back-btn d-flex justify-content-start" style={{cursor: 'pointer'}}>
               <span><FaChevronLeft /></span> 
               <p>Payment</p> 
             </div>
@@ -77,12 +79,12 @@ export const Payment = ({getDetail}) => {
     <div className="d-flex res-4">
       <div className="res-5">
         <p className="get-1">Order details :</p>
-        <p className="get-2">1 bike : Rp. 78.000 <br/> 1 bike : Rp. 78.000 </p>
-        <p className="get-3">Total : 178.000</p>
+        <p className="get-2">{buttons.value} cars : <NumberFormat value={detail.detail?.price * buttons.value} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Rp. '} ></NumberFormat> </p>
+        <p className="get-3">Total : <NumberFormat value={detail.detail?.price * buttons.value} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Rp. '} ></NumberFormat></p>
       </div>
       <div className="d-flex res-6">
         <p className="id-1">Identity :</p>
-        <p className="id-2">Samantha Doe (+6290987682) <br/> samanthadoe@mail.com</p>
+        <p className="id-2">{auth.userData.name} ({auth.userData.number}) <br/> {auth.userData.email}</p>
       </div>
     </div>
     <div className="d-flex ress">
@@ -103,12 +105,12 @@ export const Payment = ({getDetail}) => {
       </div>
     </div>
   </div>
-  <div className=" pay">
+  <Link to='/history' className="pay">
     <button className="d-flex" >
       <p className="fin">Finish payment :</p>
       <p className="time">59:30</p> 
     </button>
-  </div>
+  </Link>
   <Footer />
       </Layout>
     )
