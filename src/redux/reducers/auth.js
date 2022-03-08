@@ -34,6 +34,45 @@ const auth = (state=initialState, action)=>{
           window.localStorage.removeItem('token')
           return {...state}
         }
+        case 'POST_FORGOT_PASSWORD_PENDING': {
+          state.isLoading = true
+          state.isError = false
+          return {...state}
+        }
+        case 'POST_FORGOT_PASSWORD_FULFILLED': {
+          const {data} = action.payload
+          console.log(data)
+          state.isLoading = false
+          state.isError = false
+          window.localStorage.setItem('token', state.token)
+          return {...state}
+        }
+        case 'POST_FORGOT_PASSWORD_REJECTED': {
+          const {message} = action.payload.response.data
+          state.isLoading = false
+          state.isError = true
+          state.errorMsg = message
+          return {...state}
+        }
+        case 'POST_CHANGE_PASSWORD_PENDING': {
+          state.isLoading = true
+          state.isError = false
+          return {...state}
+        }
+        case 'POST_CHANGE_PASSWORD_FULFILLED': {
+          const {data} = action.payload
+          console.log(data)
+          state.isLoading = false
+          state.isError = false
+          return {...state}
+        }
+        case 'POST_CHANGE_PASSWORD_REJECTED': {
+          const {message} = action.payload.response.data
+          state.isLoading = false
+          state.isError = true
+          state.errorMsg = message
+          return {...state}
+        }
         case 'AUTH_USERDATA_PENDING': {
           state.isLoading = true
           return {...state}
@@ -45,7 +84,7 @@ const auth = (state=initialState, action)=>{
           return {...state}
         }
         default: {
-            return {...state}
+          return {...state}
         }
     }
 }
