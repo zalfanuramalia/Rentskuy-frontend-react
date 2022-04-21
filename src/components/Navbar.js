@@ -1,15 +1,15 @@
-import React from 'react'
-import logo from '../assets/images/logo.png'
-import { Link } from 'react-router-dom'
-import people from '../assets/images/people-2.png'
-import { FaCircle } from 'react-icons/fa'
-import { GoMail } from 'react-icons/go'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import logo from '../assets/images/logo.png';
+import { Link } from 'react-router-dom';
+import people from '../assets/images/people-2.png';
+import { FaCircle } from 'react-icons/fa';
+import { GoMail } from 'react-icons/go';
+import { useSelector } from 'react-redux';
 
 export const Navbar = () => {
-    const auth = useSelector(state => state.auth)
-    return (
-      <nav className="navbar navbar-expand-lg navbar-light">
+  const auth = useSelector(state => state.auth);
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
         <Link to='/' className="navbar-brand">
           <img src={logo} alt="logo" className='logo'/>
@@ -46,7 +46,7 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
-    )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

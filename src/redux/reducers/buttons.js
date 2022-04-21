@@ -1,23 +1,23 @@
 const buttonsState = {
   value: 0
-}
+};
 
 const buttons = (state=buttonsState, action)=>{
   switch(action.type){
-    case 'COUNTER_INCREMENT': {
-        state.value = state.value + 1
-        return {...state}
-    }
-    case 'COUNTER_DECREMENT': {
-        if (state.value > 0) {
-          state.value = state.value - 1
-        }        
-        return {...state}
-    }
-    default: {
-        return {...state}
-    }
+  case 'COUNTER_INCREMENT': {
+    state.value = state.value + 1;
+    return {...state};
   }
-}
+  case 'COUNTER_DECREMENT': {
+    if (state.value > 0) {
+      state.value = state.value - 1;
+    }        
+    return {...state};
+  }
+  default: {
+    return {...state};
+  }
+  }
+};
 
-export default buttons
+export default buttons;

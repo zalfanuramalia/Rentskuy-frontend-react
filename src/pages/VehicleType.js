@@ -1,71 +1,71 @@
-import React, { useState, useEffect } from 'react'
-import {default as axios} from 'axios'
-import { useNavigate, useSearchParams, Link } from 'react-router-dom'
-import logo from '../assets/images/logo.png'
-import people from '../assets/images/people-2.png'
-import Footer from '../components/Footer'
-import { FaCircle } from 'react-icons/fa'
-import { GoMail } from 'react-icons/go'
-import { FaChevronRight } from 'react-icons/fa'
-import Layout from '../components/Layout'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react';
+import {default as axios} from 'axios';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import logo from '../assets/images/logo.png';
+import people from '../assets/images/people-2.png';
+import Footer from '../components/Footer';
+import { FaCircle } from 'react-icons/fa';
+import { GoMail } from 'react-icons/go';
+import { FaChevronRight } from 'react-icons/fa';
+import Layout from '../components/Layout';
+import { useSelector } from 'react-redux';
 
 export const VehicleType = () => {
-  const [popular, setPopular] = useState([])
-  const [car, setCar] = useState([])
-  const [motorbike, setMotorbike] = useState([])
-  const [bike, setBike] = useState([])
-  const [page, setPage] = useState({})
-  const [errorMsg, setErrorMsg] = useState(null)
+  const [popular, setPopular] = useState([]);
+  const [car, setCar] = useState([]);
+  const [motorbike, setMotorbike] = useState([]);
+  const [bike, setBike] = useState([]);
+  const [page, setPage] = useState({});
+  const [errorMsg, setErrorMsg] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   let [searchParams, setSearchParams] = useSearchParams();
   
   useEffect(()=>{
-    getCar()
-  },[])
+    getCar();
+  },[]);
 
   useEffect (()=>{
-    getMotorbike()
-  },[])
+    getMotorbike();
+  },[]);
 
   useEffect (()=>{
-    getPopular()
-  },[])
+    getPopular();
+  },[]);
 
   useEffect (()=>{
-    getBike()
-  },[])
+    getBike();
+  },[]);
   
 
   const getPopular = async () => {
-    const {data: data2} = await axios.get ('http://192.168.1.8:5000/history/vehicles')
-    console.log(data2)
-    setPopular(data2.results)
-  }
+    const {data: data2} = await axios.get ('http://192.168.1.5:5000/history/vehicles');
+    console.log(data2);
+    setPopular(data2.results);
+  };
 
   const getCar = async ()=> {
-    const {data}= await axios.get ('http://192.168.1.8:5000/vehicles/category/1')
-    console.log(data)
-    setCar(data.results)
-    setPage(data.pageInfo)
-  }
+    const {data}= await axios.get ('http://192.168.1.5:5000/vehicles/category/1');
+    console.log(data);
+    setCar(data.results);
+    setPage(data.pageInfo);
+  };
 
   const getMotorbike = async () => {
-    const {data: data1}= await axios.get ('http://192.168.1.8:5000/vehicles/category/2')
-    setMotorbike(data1.results)
-    setPage(data1.pageInfo)
-  }
+    const {data: data1}= await axios.get ('http://192.168.1.5:5000/vehicles/category/2');
+    setMotorbike(data1.results);
+    setPage(data1.pageInfo);
+  };
 
   const getBike = async () => {
-    const {data: data1}= await axios.get ('http://192.168.1.8:5000/vehicles/category/3')
-    setBike(data1.results)
-    setPage(data1.pageInfo)
-  }
+    const {data: data1}= await axios.get ('http://192.168.1.5:5000/vehicles/category/3');
+    setBike(data1.results);
+    setPage(data1.pageInfo);
+  };
 
   const goToDetail = (id)=> {
-    navigate(`/vehicles/${id}`)
-  }
+    navigate(`/vehicles/${id}`);
+  };
   return (
     <Layout>
       <div  className="list">
@@ -88,7 +88,7 @@ export const VehicleType = () => {
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data2.brand} </div>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -112,7 +112,7 @@ export const VehicleType = () => {
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 cars'>{data.brand}</div>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -136,7 +136,7 @@ export const VehicleType = () => {
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 motorcycle'>{data1.brand}</div>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -160,14 +160,14 @@ export const VehicleType = () => {
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 bike'>{data1.brand}</div>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
     </Layout>
-  )  
-}
+  );  
+};
 
-export default VehicleType
+export default VehicleType;

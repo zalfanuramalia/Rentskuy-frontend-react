@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
 import { Provider } from 'react-redux';
-import './assets/css/style.css'
+import './assets/css/style.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'react-loading-skeleton/dist/skeleton.css'
+import 'react-loading-skeleton/dist/skeleton.css';
 import reduxStore from './redux/store';
 
 const { store } = reduxStore();

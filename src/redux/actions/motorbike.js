@@ -1,15 +1,15 @@
-import {default as axios} from 'axios'
+import http from '../../helpers/http';
 
 export const getMotorbike = ()=> {
-    return {
-        type: 'GET_MOTORBIKE',
-        payload: axios.get('http://localhost:8080/search/2?&limit=50')
-    }
-}
+  return {
+    type: 'GET_MOTORBIKE',
+    payload: http().get('/vehicles/category/2?limit=50')
+  };
+};
 
-export const filterMotorbike = (brand, location, type, payment)=> {
-    return {
-        type: 'GET_MOTORBIKE',
-        payload: axios.get(`http://localhost:8080/search/2?brand=${brand}&location=${location}&payment=${payment}&limit=50`)
-    }
-}
+export const filterMotorbike = (brand, location, payment)=> {
+  return {
+    type: 'FILTER_MOTORBIKE',
+    payload: http().get(`/vehicles/category/2?brand=${brand}&location=${location}&payment=${payment}&limit=50`)
+  };
+};
