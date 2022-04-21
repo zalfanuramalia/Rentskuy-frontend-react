@@ -7,8 +7,9 @@ import './assets/css/style.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-loading-skeleton/dist/skeleton.css'
+import reduxStore from './redux/store';
 
-import store from './redux/store'
+const { store } = reduxStore();
 
 ReactDOM.render(
   <Provider store={store}>

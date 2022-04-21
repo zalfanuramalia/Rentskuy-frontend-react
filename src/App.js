@@ -16,6 +16,7 @@ import ViewMoreCar from './pages/ViewMoreCar'
 import ViewMoreMotorbike from './pages/ViewMoreMotorbike'
 import History from './pages/History'
 import ViewMoreBike from './pages/ViewMoreBike'
+import Search from './pages/Search'
 import Button from './components/Button'
 import { unstable_HistoryRouter as HistoryRouter, Route, Routes } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
@@ -60,6 +61,7 @@ const App = () => {
         <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
         <Route path='history' element={<History />} />
         <Route path='viewMoreBike' element={<ViewMoreBike />} />
+        <Route path='search' element={<Search />} />
         <Route path='button' element={<Button />} />
       </Routes>
     </HistoryRouter>
@@ -67,51 +69,3 @@ const App = () => {
 }
 
 export default App
-
-// export default class App extends Component {
-//     componentDidMount(){
-//       console.log(this.props)
-//     }
-//     // state = {
-//     //     isLogged: false,
-//     //     greetings:''
-//     // }
-//     history = createBrowserHistory()
-//   render() {
-//     return (
-//       <>
-//       <HistoryRouter history={this.history}>
-//       <Routes>
-//             <Route path='/' element={<Home />} />
-//             <Route path='homepage' element={<Homepage />} />
-//             <Route path='navbar' element={<NavbarHome />} />
-//             <Route path='login' element={<Login />} />
-//             <Route path='vehicleType' element={<VehicleType />} />
-//             <Route path='viewPopular' element={<ViewMorePopular />} />
-//             <Route path='vehicles/:id' element={<Detail />} />
-//             <Route path='notFound' element={<NotFound />} />
-//             <Route path='register' element={<Register />} />
-//             <Route path='profil' element={<Profil />} />
-//             <Route path='reservation' element={<Reservation />} />
-//             <Route path='payment' element={<Payment />} />
-//             <Route path='forgotPassword' element={<ForgotPassword />} />
-//             <Route path='viewMoreCar' element={<ViewMoreCar />} />
-//             <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
-//             <Route path='history' element={<History />} />
-//             <Route path='viewMoreBike' element={<ViewMoreBike />} />
-//             <Route path='button' element={<Button />} />
-//             <Route path='buttons' element={<Buttons />} />
-//           </Routes>
-//       </HistoryRouter>
-//       {/* <BrowserRouter>
-      
-//       </BrowserRouter> */}
-        
-//       </>
-//         // <div className=' vh-100 '>
-//         //     {!this.state.isLogged && <Login onLogin={(value)=>{this.setState({isLogged: value})}} />}
-//         //     {this.state.isLogged && <Home />}
-//         // </div>
-//     )
-//   }
-// }

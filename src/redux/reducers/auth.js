@@ -30,8 +30,8 @@ const auth = (state=initialState, action)=>{
           return {...state}
         }
         case 'AUTH_LOGOUT': {
+          window.localStorage.removeItem('token')   
           state.token = null
-          window.localStorage.removeItem('token')
           return {...state}
         }
         case 'POST_FORGOT_PASSWORD_PENDING': {
