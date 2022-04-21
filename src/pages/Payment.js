@@ -25,7 +25,8 @@ export const Payment = ({getDetail}) => {
   }
 
   const copy = async () => {
-    await navigator.clipboard.writeText(text);
+    var copyText = document.getElementById("myInput").innerHTML
+    await navigator.clipboard.writeText(copyText);
     alert('Text copied');
   }
 
@@ -43,7 +44,8 @@ export const Payment = ({getDetail}) => {
 
   const onHistory = (e)=>{
     e.preventDefault()
-    dispatch(getPayment(auth.userData.id, detail.detail.id, 'No'))
+    const token = window.localStorage.getItem('token')
+    dispatch(getPayment(token, auth.userData.id, detail.detail.id, 'No'))
     navigate(`/history`)
   }
 
@@ -69,7 +71,7 @@ export const Payment = ({getDetail}) => {
                 <h1 className="text-1">{detail.detail?.brand} </h1>
                 <h1 className="text-2"> {detail.detail?.location}</h1>
                 <p className="text-3">{detail.detail?.can_prepayment}</p>
-                <p className="text-4" onChange={inputHandler}>#FG1209878YZS</p>
+                <p className="text-4" id='myInput' onChange={inputHandler}>#FG1209878YZS</p>
                 <button onClick={copy} className="text-5">Copy booking code</button>
               </div>
             </div>
@@ -102,7 +104,7 @@ export const Payment = ({getDetail}) => {
             </div>
             <div className="d-flex ress-2">
               <p>#FG1209878YZS</p>
-              <button onClick={copy}>Copy</button>
+              <button id='myInput' onClick={copy}>Copy</button>
             </div>
             <div className=" d-flex ress-3">
               <select className="form-select sel-op" aria-label="Default select example">

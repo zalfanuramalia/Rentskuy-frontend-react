@@ -1,14 +1,12 @@
 import axios from "axios";
 
-const {REACT_APP_BACKEND_URL} = process.env
-
 const http = (token)=> {
   const headers = {}
   if(token){
     headers["Authorization"] = `Bearer ${token}`
   }
   return axios.create({
-    baseURL: REACT_APP_BACKEND_URL,
+    baseURL: 'http://192.168.1.8:5000',
     headers
   })
 }

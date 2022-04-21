@@ -141,7 +141,6 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
         <p>There is no vehicle left</p>
      </div>
     </div>
-      <Footer />
     </Layout>
   )
 }

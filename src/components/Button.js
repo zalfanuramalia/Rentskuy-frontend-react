@@ -33,9 +33,9 @@ export class Button extends React.Component {
     render(){
         return (
             <div className="col-6 d-flex counting ">
-                    <button className="minus " onClick={this.onPlus}>-</button>
+                    <button className="minus " onClick={this.onMinus}>-</button>
                     <div type="number" className="count" name="qty">{this.state.value}</div>
-                    <button className="plus " onClick={this.onMinus}>+</button>
+                    <button className="plus " onClick={this.onPlus}>+</button>
             </div>
         )
     }

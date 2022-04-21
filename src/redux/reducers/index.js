@@ -2,9 +2,12 @@ import { combineReducers } from "redux";
 import auth from './auth'
 import buttons from "./buttons";
 import detail from "./detail";
+import register from "./register";
+import payment from "./payment";
+import history from "./history";
+import popular from "./popular";
 
 const dataState = {
-    popular: [],
     car: [],
     motorbike: [],
     bike: [],
@@ -18,6 +21,10 @@ const rootReducer = combineReducers ({
     auth,
     buttons,
     detail,
+    register,
+    payment,
+    history,
+    popular,
     car: (state=dataState, action)=> {
       switch(action.type){
           case 'GET_CAR_PENDING': {
@@ -37,33 +44,7 @@ const rootReducer = combineReducers ({
               const {message} = action.payload.response.data
               state.isLoading = false
               state.isError = true
-              state.errorMsg = message
-              return {...state}
-          }
-          default: {
-              return {...state}
-          }
-      }
-    },
-    popular: (state=dataState, action)=> {
-      switch(action.type){
-          case 'GET_POPULAR_PENDING': {
-              state.isLoading = true
-              state.isError = false
-              return {...state}
-          }
-          case 'GET_POPULAR_FULFILLED': {
-              const {data} = action.payload
-              state.popular = data.result
-              state.pageInfo = data.info
-              state.isLoading = false
-              state.isError = false
-              return {...state}
-          }
-          case 'GET_POPULAR_REJECTED': {
-              const {message} = action.payload.response.data
-              state.isLoading = false
-              state.isError = true
+              state.car = []
               state.errorMsg = message
               return {...state}
           }
@@ -91,6 +72,7 @@ const rootReducer = combineReducers ({
                 const {message} = action.payload.response.data
                 state.isLoading = false
                 state.isError = true
+                state.motorbike = []
                 state.errorMsg = message
                 return {...state}
             }
@@ -118,6 +100,7 @@ const rootReducer = combineReducers ({
                 const {message} = action.payload.response.data
                 state.isLoading = false
                 state.isError = true
+                state.bike = []
                 state.errorMsg = message
                 return {...state}
             }

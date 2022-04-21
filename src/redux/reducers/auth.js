@@ -80,7 +80,7 @@ const auth = (state=initialState, action)=>{
         case 'AUTH_USERDATA_FULFILLED': {
           const {data} = action.payload
           state.isLoading = false
-          state.userData = data.result
+          state.userData = data.results
           return {...state}
         }
         default: {

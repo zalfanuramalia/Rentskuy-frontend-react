@@ -149,7 +149,6 @@ export const ViewMorePopular = ({getPopular, filterPopular}) => {
         <p>There is no vehicle left</p>
      </div>
     </div>
-      <Footer />
     </Layout>
   )
 }

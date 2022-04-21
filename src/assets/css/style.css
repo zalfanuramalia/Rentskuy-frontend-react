@@ -50,7 +50,6 @@ body {
 .back {
   width: 43px;
   height: 28px;
-  margin-left: 121px;
   margin-top: 50px;
 }
 
@@ -77,9 +76,12 @@ body {
 }
 
 .vehicles-details .main-image {
-  width: 350px;
-  height: 350px;
-  margin-top: 200px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.vehicles-details .brand {
+  font-weight: 900;
 }
 
 .vehicles-details .available {
@@ -88,7 +90,6 @@ body {
   font-size: 24px;
   line-height: 25px;
   font-family: 'Nunito', sans-serif;
-  margin-top: 25px;
 }
 
 .vehicles-details .pre {
@@ -97,7 +98,6 @@ body {
   font-size: 20px;
   line-height: 24px;
   font-family: 'Nunito', sans-serif;
-  margin-top: 5px;
 }
 
 .vehicles-details .about {
@@ -108,18 +108,13 @@ body {
 
 .vehicles-details .details .price {
   margin-top: 20px;
-  align-items: flex-start;
+  align-items: flex-end;
   font-family: 'Playfair Display', serif;
   font-style: normal;
   font-weight: 900;
   font-size: 30px;
   line-height: 25px;
   width: 100%;
-  margin-left: unset;
-}
-
-.vehicles-details .description {
-  margin-left: 100px;
 }
 
 .detail-vehicle .button .button-chat {
@@ -234,15 +229,6 @@ div.counting {
   align-items: center;
 }
 
-.detail-vehicle .row>* {
-  padding: unset;
-}
-
-.two-image {
-  width: 300px;
-  height: 200px;
-}
-
 .two-image .left {
   margin-top: 60px;
   height: 30px;
@@ -272,7 +258,7 @@ div.counting {
 
 .header-forgot .header-content .header-nav {
   margin: 0 89px;
-  padding: 74px;
+  padding: 45px;
 }
 
 .header-forgot .header-content .header-nav i {
@@ -297,7 +283,7 @@ div.counting {
 }
 
 .header-forgot .header-content form div input {
-  margin-top: 83px;
+  margin-top: 10px;
   height: 79px;
   width: 447px;
   border-radius: 10px;
@@ -372,6 +358,26 @@ footer.footer .link-social i {
   font-size: 25px;
   margin-left: 17.5px;
   margin-right: 17.5px;
+}
+
+.reset {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.submit-code {
+  margin-top: 20px;
+  height: 79px;
+  width: 490px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 24px;
+  background-color: #FAF8F6;
+  box-shadow: 0px 0px 20px rgba(78, 78, 78, 0.4);
+  color: black;
+  font-weight: 900;
+  border: none;
+  font-family: 'Nunito', sans-serif;
 }
 
 @media (max-width: 500px) {
@@ -462,6 +468,11 @@ footer.footer .link-social i {
   border: none;
   font-family: 'Nunito', sans-serif;
   box-shadow: 0px 0px 20px rgba(248, 161, 112, 0.47);
+}
+
+.forpas {
+  text-decoration: unset;
+  color: #A57E57;
 }
 
 .login .text2 form div a {
@@ -1269,7 +1280,6 @@ div.login .text2 form div button.button-email {
 
 div.login .text2 form div button.button-login-2 {
   margin-top: 57px;
-  margin-left: 100px;
   height: 79px;
   width: 490px;
   border-radius: 10px;
@@ -1279,7 +1289,7 @@ div.login .text2 form div button.button-login-2 {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 }
 
-.login .text2 form div button.button-login-2 a {
+.login .text2 form div button.button-login-2 p {
   text-decoration: none;
   font-family: 'Nunito', sans-serif;
   color: #C2A78B;
@@ -2043,9 +2053,9 @@ input::-webkit-inner-spin-button {
 }
 
 .one .form-1 input {
-  color: #B8BECD;
-  background: rgba(218, 218, 218, 0.27);
-  border: 0.5px solid #C4C4C4;
+  color: #70553B;
+  background-color: #DED0C1;
+  border: 0.5px solid #70553B;
   box-sizing: border-box;
   border-radius: 10px;
   width: 674px;
@@ -2057,18 +2067,18 @@ input::-webkit-inner-spin-button {
 }
 
 .one .form-1 input::placeholder {
-  color: #B8BECD;
+  color: #70553B;
 }
 
 .one .form-1 input:focus {
   outline: none;
 }
 
-.one .form-1 i {
+.one .form-1 span {
   position: absolute;
   left: 620px;
   font-size: 30px;
-  top: 25px;
+  top: 16px;
 }
 
 .one .form-2 {
@@ -2079,30 +2089,22 @@ input::-webkit-inner-spin-button {
 .one .form-2 select {
   width: 157px;
   height: 75px;
-  background: rgba(218, 218, 218, 0.27);
-  border: 0.5px solid #C4C4C4;
+  background-color: #DED0C1;
+  border: 0.5px solid #70553B;
   box-sizing: border-box;
   border-radius: 10px;
   font-weight: normal;
   font-size: 24px;
   line-height: 36px;
-  color: #B8BECD;
+  color: #70553B;
   font-family: 'Poppins', sans-serif;
-}
-
-.one .form-2 i {
-  position: absolute;
-  left: 110px;
-  font-size: 30px;
-  color: #B8BECD;
-  top: 23px;
 }
 
 .one .today {
   font-weight: 600;
   font-size: 24px;
   line-height: 180%;
-  color: #C4C4C4;
+  color: #70553B;
   width: 64px;
   height: 43px;
   margin-top: 45px;
@@ -2113,12 +2115,9 @@ input::-webkit-inner-spin-button {
 .one .qt-2 {
   font-weight: 600;
   font-size: 24px;
-  color: #393939;
-}
-
-.one .qt {
   margin-top: 48px;
   margin-left: 110px;
+  color: #70553B;
 }
 
 .one .underline-1 {
@@ -2128,21 +2127,12 @@ input::-webkit-inner-spin-button {
   margin-left: 110px;
 }
 
-.one .qt i {
-  margin-top: 8px;
-  margin-left: 189px;
-  color: #999999;
+.one .qt a {
+  margin-left: 190px;
 }
 
-.one .qt-2 {
-  margin-top: 26px;
-  margin-left: 110px;
-}
-
-.one .qt-2 i {
-  margin-top: 6px;
-  margin-left: 462px;
-  color: #999999;
+.one .qt-2 a {
+  margin-left: 463px;
 }
 
 .one .timer {
@@ -2150,7 +2140,7 @@ input::-webkit-inner-spin-button {
   font-size: 24px;
   line-height: 180%;
   align-items: flex-end;
-  color: #C4C4C4;
+  color: #70553B;
   margin-top: 48px;
   margin-left: 110px;
 }
@@ -2185,7 +2175,7 @@ input::-webkit-inner-spin-button {
 }
 
 .one .image-1 .desc .desc-4 {
-  color: rgb(6, 240, 6);
+  color: #70553B;
 }
 
 .history-1 .one .image-2 {
@@ -2240,7 +2230,7 @@ input::-webkit-inner-spin-button {
   box-sizing: border-box;
   border-radius: 10px;
   width: 375px;
-  height: 1006px;
+  height: 750px;
   align-items: center;
   margin-left: 62px;
   position: relative;
@@ -2249,45 +2239,17 @@ input::-webkit-inner-spin-button {
 .two .new-arrival p {
   font-weight: 900;
   font-size: 24px;
-  color: #393939;
+  color: #70553B;
   margin: 40px 40px 40px 120px;
   font-family: 'Playfair Display', serif;
 }
 
-.two .vehicle-1,
-.two .vehicle-2 {
-  position: relative;
-  margin-left: 50px;
+.two .vehicle-1 {
+  text-align: center;
 }
 
-.two .vehicle-1 .telukbogam {
-  position: absolute;
-  background: white;
-  bottom: 0;
-  left: 0;
-  width: 130px;
-  height: 50px;
-  border-radius: 0px 6px 0px 0px;
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 25px;
-}
-
-.two .vehicle-2 {
-  margin-top: 50px;
-}
-
-.two .vehicle-2 .malioboro {
-  position: absolute;
-  background: white;
-  bottom: 0;
-  left: 0;
-  width: 130px;
-  height: 50px;
-  border-radius: 0px 6px 0px 0px;
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 25px;
+.two .vehicle-1 .popular {
+  margin-left: 120px;
 }
 
 .two .view {
@@ -2298,13 +2260,13 @@ input::-webkit-inner-spin-button {
 .two .view p {
   font-weight: normal;
   font-size: 18px;
-  color: #B8BECD;
+  color: #70553B;
   font-size: 18px;
   line-height: 32px;
 }
 
-.two .view i {
-  color: #4A4C53;
+.two .view a {
+  color: #70553B;
   margin-left: 30px;
   font-size: 36px;
 }

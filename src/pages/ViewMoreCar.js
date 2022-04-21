@@ -142,7 +142,6 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
         <p>There is no vehicle left</p>
      </div>
     </div>
-      <Footer />
     </Layout>
   )
 }

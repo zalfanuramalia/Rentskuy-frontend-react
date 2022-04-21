@@ -3,7 +3,7 @@ import http from '../../helpers/http'
 export const getCar = ()=> {
     return {
         type: 'GET_CAR',
-        payload: http().get('/search/1?&limit=50') /*axios.get('http://localhost:8080/vehicles/category/1?&limit=50')*/
+        payload: http().get('/vehicles/category/1?&limit=50') /*axios.get('http://localhost:8080/vehicles/category/1?&limit=50')*/
     }
 }
 

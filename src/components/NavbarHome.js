@@ -8,7 +8,6 @@ import people from '../assets/images/people-2.png'
 export const NavbarHome = () => {
         const dispatch = useDispatch()
         const auth = useSelector(state => state.auth)
-        console.log(auth)
         return (
             <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container">

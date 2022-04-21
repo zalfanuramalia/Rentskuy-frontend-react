@@ -8,6 +8,7 @@ import { FaCircle } from 'react-icons/fa'
 import { GoMail } from 'react-icons/go'
 import { FaChevronRight } from 'react-icons/fa'
 import Layout from '../components/Layout'
+import { useSelector } from 'react-redux'
 
 export const VehicleType = () => {
   const [popular, setPopular] = useState([])
@@ -38,26 +39,26 @@ export const VehicleType = () => {
   
 
   const getPopular = async () => {
-    const {data: data2} = await axios.get ('http://localhost:8080/history/vehicles')
+    const {data: data2} = await axios.get ('http://192.168.1.8:5000/history/vehicles')
     console.log(data2)
-    setPopular(data2.result)
+    setPopular(data2.results)
   }
 
   const getCar = async ()=> {
-    const {data}= await axios.get ('http://localhost:8080/search/1?limit=4')
+    const {data}= await axios.get ('http://192.168.1.8:5000/vehicles/category/1')
     console.log(data)
     setCar(data.results)
     setPage(data.pageInfo)
   }
 
   const getMotorbike = async () => {
-    const {data: data1}= await axios.get ('http://localhost:8080/search/2?limit=4')
+    const {data: data1}= await axios.get ('http://192.168.1.8:5000/vehicles/category/2')
     setMotorbike(data1.results)
     setPage(data1.pageInfo)
   }
 
   const getBike = async () => {
-    const {data: data1}= await axios.get ('http://localhost:8080/search/3?limit=4')
+    const {data: data1}= await axios.get ('http://192.168.1.8:5000/vehicles/category/3')
     setBike(data1.results)
     setPage(data1.pageInfo)
   }
