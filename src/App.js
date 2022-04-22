@@ -16,7 +16,6 @@ import ViewMoreCar from './pages/ViewMoreCar';
 import ViewMoreMotorbike from './pages/ViewMoreMotorbike';
 import History from './pages/History';
 import ViewMoreBike from './pages/ViewMoreBike';
-import Search from './pages/Search';
 import Button from './components/Button';
 import { unstable_HistoryRouter as HistoryRouter, Route, Routes } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
@@ -61,7 +60,6 @@ const App = () => {
         <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
         <Route path='history' element={<History />} />
         <Route path='viewMoreBike' element={<ViewMoreBike />} />
-        <Route path='search' element={<Search />} />
         <Route path='button' element={<Button />} />
       </Routes>
     </HistoryRouter>
