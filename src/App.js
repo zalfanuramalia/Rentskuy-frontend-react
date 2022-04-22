@@ -6,7 +6,6 @@ import VehicleType from './pages/VehicleType';
 import ViewMorePopular from './pages/ViewMorePopular';
 import NavbarHome from './components/NavbarHome';
 import Detail from './pages/Detail';
-import NotFound from './helpers/NotFound';
 import Reservation from './pages/Reservation';
 import Payment from './pages/Payment';
 import Profil from './pages/Profil';
@@ -50,7 +49,6 @@ const App = () => {
         <Route path='vehicleType' element={<VehicleType />} />
         <Route path='viewPopular' element={<ViewMorePopular />} />
         <Route path='vehicles/:id' element={<Detail />} />
-        <Route path='notFound' element={<NotFound />} />
         <Route path='register' element={<Register />} />
         <Route path='profil' element={<Profil />} />
         <Route path='reservation/:id' element={<Reservation />} />
