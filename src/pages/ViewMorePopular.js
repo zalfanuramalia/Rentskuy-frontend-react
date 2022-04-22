@@ -23,7 +23,7 @@ export const ViewMorePopular = ({getPopular, filterPopular}) => {
     const payment = searchParams.get('payment');
 
     if(brand || location || type || payment){
-      const url = (brand)=> `http://192.168.1.5:5000/history/vehicles?search=${brand}&location=${location}&type=${type}&payment=${payment}`;
+      const url = (brand)=> `https://rentskuy.herokuapp.com/history/vehicles?search=${brand}&location=${location}&type=${type}&payment=${payment}`;
       document.getElementById('search').elements['search'].value = brand;
       document.getElementById('search').elements['search'].value = location;
       document.getElementById('search').elements['search'].value = type;

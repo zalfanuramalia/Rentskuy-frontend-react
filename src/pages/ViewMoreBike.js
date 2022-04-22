@@ -23,7 +23,7 @@ export const ViewMoreBike = ({getBike, filterBike}) => {
     const payment = searchParams.get('payment');
     
     if(brand || location || payment){
-      const url1 = (brand)=> `http://192.168.1.5:5000/search/3?brand=${brand}&location=${location}&payment=${payment}`;
+      const url1 = (brand)=> `https://rentskuy.herokuapp.com/search/3?brand=${brand}&location=${location}&payment=${payment}`;
       document.getElementById('search').elements['search'].value = brand;
       document.getElementById('search').elements['search'].value = location;
       document.getElementById('search').elements['search'].value = payment;

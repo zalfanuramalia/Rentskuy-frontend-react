@@ -39,26 +39,26 @@ export const VehicleType = () => {
   
 
   const getPopular = async () => {
-    const {data: data2} = await axios.get ('http://192.168.1.5:5000/history/vehicles');
+    const {data: data2} = await axios.get ('https://rentskuy.herokuapp.com/history/vehicles');
     console.log(data2);
     setPopular(data2.results);
   };
 
   const getCar = async ()=> {
-    const {data}= await axios.get ('http://192.168.1.5:5000/vehicles/category/1');
+    const {data}= await axios.get ('https://rentskuy.herokuapp.com/vehicles/category/1');
     console.log(data);
     setCar(data.results);
     setPage(data.pageInfo);
   };
 
   const getMotorbike = async () => {
-    const {data: data1}= await axios.get ('http://192.168.1.5:5000/vehicles/category/2');
+    const {data: data1}= await axios.get ('https://rentskuy.herokuapp.com/vehicles/category/2');
     setMotorbike(data1.results);
     setPage(data1.pageInfo);
   };
 
   const getBike = async () => {
-    const {data: data1}= await axios.get ('http://192.168.1.5:5000/vehicles/category/3');
+    const {data: data1}= await axios.get ('https://rentskuy.herokuapp.com/vehicles/category/3');
     setBike(data1.results);
     setPage(data1.pageInfo);
   };

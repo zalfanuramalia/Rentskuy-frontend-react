@@ -95,7 +95,7 @@ export const History = ({getPopularHistory, ListHistory}) => {
                           <div>
                             <p className="desc-1">{item?.vehicleName} </p>
                             <p className="desc-2">Jan 18 to 21 2021</p>
-                            <p className="desc-3">Payment : <NumberFormat value={item?.price * buttons.value} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Rp. '} ></NumberFormat> </p>
+                            <p className="desc-3">Payment : <NumberFormat value={item?.Price} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Rp. '} ></NumberFormat> </p>
                             <p className="desc-4">Has not been returned</p>
                           </div>
                         </div>
@@ -111,17 +111,16 @@ export const History = ({getPopularHistory, ListHistory}) => {
               ) : (
                 <ul className="list-group list-history">
                   {history.history.map((item)=>{
-                    console.log(history.history);
                     return (
                       <div key={item.id} className="d-flex image-1">
                         <div className="img">
-                          <img src={item?.image} alt={item?.brand} />
+                          <img src={item?.image} alt={item?.vehicleName} />
                         </div>
                         <div className="desc">
                           <div>
-                            <p className="desc-1">{item?.brand} </p>
+                            <p className="desc-1">{item?.vehicleName} </p>
                             <p className="desc-2">Jan 18 to 21 2021</p>
-                            <p className="desc-3">Payment : <NumberFormat value={item?.price * buttons.value} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Rp. '} ></NumberFormat> </p>
+                            <p className="desc-3">Payment : <NumberFormat value={item?.Price} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} prefix={'Rp. '} ></NumberFormat> </p>
                             <p className="desc-4">Has not been returned</p>
                           </div>
                         </div>

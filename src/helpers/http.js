@@ -6,7 +6,7 @@ const http = (token)=> {
     headers['Authorization'] = `Bearer ${token}`;
   }
   return axios.create({
-    baseURL: 'http://192.168.1.5:5000',
+    baseURL: 'https://rentskuy.herokuapp.com',
     headers
   });
 };
