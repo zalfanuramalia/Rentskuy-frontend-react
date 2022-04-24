@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../components/Footer';
 import { FaChevronLeft } from 'react-icons/fa';
 import { useParams, useNavigate } from 'react-router-dom';
 import { increment, decrement } from '../redux/actions/buttons';
@@ -7,6 +6,7 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import Layout from '../components/Layout';
 import NumberFormat from 'react-number-format';
 import { getDetail } from '../redux/actions/detail';
+import noimage from '../assets/images/image-not-found.png';
 
 export const Reservation = ({getDetail}) => {
   const {detail} = useSelector(state => state);
@@ -59,7 +59,7 @@ export const Reservation = ({getDetail}) => {
         <div className="container-fluid g-0">
           <div className="row g-0">
             <div className="col">
-              <img className='img-fluid' src={detail.detail?.image} alt="charImg" />
+              <img className='img-fluid' src={!detail.detail?.image ? detail.detail?.image : noimage} alt="charImg" />
             </div>
             <div className="col info">
               <div>

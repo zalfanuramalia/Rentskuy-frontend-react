@@ -10,6 +10,7 @@ import { FaChevronRight } from 'react-icons/fa';
 import { getPopularHome } from '../redux/actions/popular';
 import { connect, useSelector } from 'react-redux';
 import Skeleton from  'react-loading-skeleton';
+import noimage from '../assets/images/image-not-found.png';
 
 export const Home = ({getPopularHome}) => {
   const {popular: populars} = useSelector (state => state);
@@ -86,7 +87,7 @@ export const Home = ({getPopularHome}) => {
               return(
                 <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                   <div className='position-relative mb-2'>
-                    <img className='img-fluid' src={data2.image} alt={data2.brand} />
+                    <img className='img-fluid' src={!data2?.image  ? data2.image : noimage} alt={data2.brand} />
                     <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data2.brand} </div>
                   </div>
                 </div>

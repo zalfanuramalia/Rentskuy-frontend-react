@@ -8,11 +8,12 @@ import NumberFormat from 'react-number-format';
 import { getPopularHistory } from '../redux/actions/popular';
 import { FaChevronRight, FaChevronDown } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { historyByUser, ListHistory } from '../redux/actions/history';
+import { deleteHistory, historyByUser, ListHistory } from '../redux/actions/history';
 import { useSearchParams } from 'react-router-dom';
+import noimage from '../assets/images/image-not-found.png';
 
-export const History = ({getPopularHistory, ListHistory}) => {
-  const [searchParams,setSearchParams] = useSearchParams();
+export const History = () => {
+  // const [searchParams,setSearchParams] = useSearchParams();
   const [isDelete,setIsDelete] = useState();
   const dispatch = useDispatch();
   const {popular: populars} = useSelector (state => state);
@@ -36,7 +37,7 @@ export const History = ({getPopularHistory, ListHistory}) => {
   },[]);
 
   useEffect (()=>{
-    ListHistory(auth.token);
+    dispatch(ListHistory(auth.token));
   },[]);
 
   useEffect (()=>{
@@ -46,6 +47,10 @@ export const History = ({getPopularHistory, ListHistory}) => {
   const goToDetail = (id)=> {
     navigate(`/vehicles/${id}`);
   };
+
+  // const handleDelete = (id) => {
+  //   dispatch(deleteHistory(id, auth.token));
+  // };
   return (
     <Layout>
       <div className="history-1">
@@ -87,9 +92,9 @@ export const History = ({getPopularHistory, ListHistory}) => {
                 <ul className="list-group list-history">
                   {history.historyUser.map((item)=>{
                     return (
-                      <div key={item.id} className="d-flex align-items-center image-1">
-                        <div className="img">
-                          <img src={item?.image} alt={item?.brand} />
+                      <div key={item.id} className="d-flex align-items-center justify-content-between image-1">
+                        <div className="img py-3">
+                          <img src={!item?.image ? item.image : noimage} alt={item?.brand} width="400" height="200" />
                         </div>
                         <div className="desc">
                           <div>
@@ -100,14 +105,13 @@ export const History = ({getPopularHistory, ListHistory}) => {
                           </div>
                         </div>
                         <div className="col-md-4 px-5">
-                          <button btnVarian="button-filled">Delete</button>
+                          <button btnVarian="button-filled" >Delete</button>
                         </div>
                       </div>
                     );                  
                   })
                   }
-                </ul>
-                
+                </ul>                         
               ) : (
                 <ul className="list-group list-history">
                   {history.history.map((item)=>{
@@ -129,7 +133,7 @@ export const History = ({getPopularHistory, ListHistory}) => {
                         </div>
                       </div>
                     );
-                  
+                
                   })
                   }
                 </ul>
@@ -144,7 +148,7 @@ export const History = ({getPopularHistory, ListHistory}) => {
               return (
                 <div key={String(data.id)} onClick={()=>goToDetail(data.id)} style={{cursor: 'pointer'}} >
                   <div className='position-relative mb-2 mt-5 vehicle-1'>
-                    <img className='img-fluid' src={data.image} alt={data.brand} />
+                    <img className='img-fluid' src={!data.image ? data.image : noimage} alt={data.brand} />
                     <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data.brand} </div>
                   </div>
                 </div>
@@ -161,8 +165,7 @@ export const History = ({getPopularHistory, ListHistory}) => {
   );
 };
 
-const mapStateToProps = state => ({ popular: state.popular, history: state.history});
 
-const mapDispatchToProps = { getPopularHistory, ListHistory};
+// const mapDispatchToProps = { getPopularHistory, ListHistory, historyByUser};
 
-export default connect(mapStateToProps, mapDispatchToProps)(History);
+export default History;

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { increment, decrement } from '../redux/actions/buttons';
 import { FaHeart, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { getDetail } from '../redux/actions/detail';
 import Layout from '../components/Layout';
+import noimage from '../assets/images/image-not-found.png';
 
 export const Detail = ({getDetail}) => {
   const {detail, auth} = useSelector(state => state);
@@ -59,7 +58,7 @@ export const Detail = ({getDetail}) => {
           </div>
           <div className="vehicles-details d-flex align-items-center px-4">
             <div className="main-image px-5 mt-4">
-              <img className='img-fluid' src={detail.detail?.image} alt="charImg" width="500" height="500" />
+              <img className='img-fluid' src={!detail.detail?.image ? detail.detail?.image : noimage} alt="charImg" width="500" height="500" />
             </div> 
             <div className="details position-relative mx-5 px-5">
               <div className="city">
@@ -84,8 +83,8 @@ export const Detail = ({getDetail}) => {
                 <div className='left'>
                   <FaChevronLeft />
                 </div>             
-                <img className='img-fluid' src={detail.detail?.image} alt='charImg' width='300' height='200' />
-                <img className='img-fluid' src={detail.detail?.image} alt='charImg' width='300' height='200' />
+                <img className='img-fluid px-2' src={!detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
+                <img className='img-fluid px-2' src={!detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
                 <div className='right'>
                   <FaChevronRight />
                 </div>           

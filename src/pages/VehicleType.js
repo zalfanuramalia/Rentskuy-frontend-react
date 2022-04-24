@@ -9,6 +9,7 @@ import { GoMail } from 'react-icons/go';
 import { FaChevronRight } from 'react-icons/fa';
 import Layout from '../components/Layout';
 import { useSelector } from 'react-redux';
+import noimage from '../assets/images/image-not-found.png';
 
 export const VehicleType = () => {
   const [popular, setPopular] = useState([]);
@@ -84,7 +85,7 @@ export const VehicleType = () => {
                 return(
                   <div key={String(data2.id)} onClick={()=>goToDetail(data2.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                     <div className='position-relative mb-2'>
-                      <img className='img-fluid' src={data2.image} alt={data2.brand} />
+                      <img className='img-fluid' src={!data2?.image  ? data2.image : noimage} alt={data2.brand} />
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 popular'>{data2.brand} </div>
                     </div>
                   </div>
@@ -108,7 +109,7 @@ export const VehicleType = () => {
                 return(
                   <div key={String(data.id)} onClick={()=>goToDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                     <div className='position-relative mb-2'>
-                      <img className='img-fluid' src={data.image} alt={data.brand} />
+                      <img className='img-fluid' src={!data?.image  ? data.image : noimage} alt={data.brand} />
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 cars'>{data.brand}</div>
                     </div>
                   </div>
@@ -132,7 +133,7 @@ export const VehicleType = () => {
                 return(
                   <div key={String(data1.id)} onClick={()=>goToDetail(data1.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                     <div className='position-relative mb-2'>
-                      <img className='img-fluid' src={data1.image} alt={data1.brand} />
+                      <img className='img-fluid' src={!data1?.image  ? data1.image : noimage} alt={data1.brand} />
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 motorcycle'>{data1.brand}</div>
                     </div>
                   </div>
@@ -156,8 +157,8 @@ export const VehicleType = () => {
                 return(
                   <div key={String(data1.id)} onClick={()=>goToDetail(data1.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                     <div className='position-relative mb-2'>
-                      <img className='img-fluid' src={data1.image} alt={data1.brand} />
-                      <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 bike'>{data1.brand}</div>
+                      <img className='img-fluid' src={!data1?.image  ? data1.image : noimage} alt={data1.brand} />
+                      <div className='position-absolute bottom-3 start-0 bg-white px-3 py-2 bike'>{data1.brand}</div>
                     </div>
                   </div>
                 );

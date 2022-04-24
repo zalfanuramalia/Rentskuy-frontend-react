@@ -1,6 +1,7 @@
 const dataHistory = {
   history: [],
   historyUser: [],
+  deleteHistory: {},
   isError: false,
   isLoading: false,
   errMessage: null,
@@ -54,6 +55,24 @@ const history = (state = dataHistory, action) => {
     state.isError = true;
     state.errMessage = data.message;
     return {...state };
+  }
+  case 'DELETE_HISTORY_PENDING': {
+    state.isLoading = true;
+    state.isError = false;
+    return {...state};
+  }
+  case 'DELETE_HISTORY_FULFILLED': {
+    const {data} = action.payload;
+    console.log(data);
+    state.deleteHistory = data;
+    state.pageInfo = data.info;
+    state.isLoading = false;
+    return {...state};
+  }
+  case 'DELETE_HISTORY_REJECTED': {
+    state.isLoading = false;
+    state.isError = true;
+    return {...state};
   }
   default:
   {
