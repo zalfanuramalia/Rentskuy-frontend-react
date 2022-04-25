@@ -58,7 +58,7 @@ export const Detail = ({getDetail}) => {
           </div>
           <div className="vehicles-details d-flex align-items-center px-4">
             <div className="main-image px-5 mt-4">
-              <img className='img-fluid' src={!detail.detail?.image ? detail.detail?.image : noimage} alt="charImg" width="500" height="500" />
+              <img className='img-fluid' src={detail.detail?.image ? detail.detail?.image : noimage} alt="charImg" width="500" height="500" />
             </div> 
             <div className="details position-relative mx-5 px-5">
               <div className="city">
@@ -69,7 +69,7 @@ export const Detail = ({getDetail}) => {
               <p className='pre'>{detail.detail?.can_prepayment}</p>
               <div className="about">
                 <p>Capacity : {detail.detail?.qty}</p>
-                <p>Type : {detail.detail?.category_id}</p>
+                <p>Type : {detail.detail?.type}</p>
                 <p>Reservation before 2 PM</p>
               </div>
               <div className="price">
@@ -82,9 +82,9 @@ export const Detail = ({getDetail}) => {
               <div className='col-md-6 col-12 d-flex justify-content-between two-image'>
                 <div className='left'>
                   <FaChevronLeft />
-                </div>             
-                <img className='img-fluid px-2' src={!detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
-                <img className='img-fluid px-2' src={!detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
+                </div>
+                <img className='img-fluid px-2' src={detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
+                <img className='img-fluid px-2' src={detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
                 <div className='right'>
                   <FaChevronRight />
                 </div>           
@@ -112,9 +112,11 @@ export const Detail = ({getDetail}) => {
             <div className="button container">
               <div className='row justify-content-around'>
                 <div className='button-chat btn btn-primary col-2'>
-                  <Link to='/' style={{textDecoration:'none'}} type="button"> <p>Add to homepage</p></Link>
+                  <Link to='/' style={{textDecoration:'none'}} type="button"> <p className='mt-3'>Add to homepage</p></Link>
                 </div>
-                <button onClick={()=>goReservation(id)} style={{cursor: 'pointer'}} className="submit-button btn btn-primary"> <p>Edit Item</p></button>
+                <div className='submit-button btn btn-primary col-2'>
+                  <Link to='/edit-vehicles' style={{textDecoration:'none'}} type="button"> <p className='mt-3'>Edit Item</p></Link>
+                </div>
               </div>
             </div>
           )}

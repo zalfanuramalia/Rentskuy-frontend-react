@@ -122,8 +122,12 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
               {cars.car.map((data, idx)=>{
                 return(
                   <div key={String(data.id)} onClick={()=>goCarDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
-                    <div className='position-relative mb-2'>
-                      <img className='img-fluid' src={!data.image ? data.image : noimage} alt={data.brand} />
+                    <div className='position-relative mb-2 main-image'>
+                      {data.image !== null ? (
+                        <img className='img-fluid' src={data.image} alt={data.brand} />
+                      ) : (
+                        <img className='img-fluid' src={noimage} alt={data.brand} />
+                      )}
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 cars'>{data.brand}</div>
                     </div>
                   </div>
