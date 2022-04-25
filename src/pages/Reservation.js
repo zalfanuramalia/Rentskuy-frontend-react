@@ -59,7 +59,7 @@ export const Reservation = ({getDetail}) => {
         <div className="container-fluid g-0">
           <div className="row g-0">
             <div className="col">
-              <img className='img-fluid' src={detail.detail?.image} alt="charImg" />
+              <img className='img-fluid' src={!detail.detail?.image ? detail.detail?.image : noimage} alt="charImg" />
             </div>
             <div className="col info">
               <div>

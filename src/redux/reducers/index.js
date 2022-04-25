@@ -38,10 +38,10 @@ const persistPayment = {
   storage,
 };
 
-const persistHistory = {
-  key: 'history',
-  storage,
-};
+// const persistHistory = {
+//   key: 'history',
+//   storage,
+// };
 
 const persistPopular = {
   key: 'popular',
@@ -69,7 +69,7 @@ const rootReducer = combineReducers ({
   detail: persistReducer(persistDetail, detail),
   register: persistReducer(persistRegister, register),
   payment: persistReducer(persistPayment, payment),
-  history: persistReducer(persistHistory, history),
+  // history: persistReducer(persistHistory, history),
   popular: persistReducer(persistPopular, popular),
   car: persistReducer(persistCar, car),
   motorbike: persistReducer(persistMotorbike, motorbike),
@@ -78,7 +78,7 @@ const rootReducer = combineReducers ({
   // detail,
   // register,
   // payment,
-  // history,
+  history,
   // popular,
   // car,
   // motorbike,
