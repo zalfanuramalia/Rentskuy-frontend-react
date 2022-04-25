@@ -6,6 +6,7 @@ import { useNavigate, useSearchParams} from 'react-router-dom';
 import { getMotorbike, filterMotorbike } from '../redux/actions/motorbike';
 import Skeleton from  'react-loading-skeleton';
 import Layout from '../components/Layout';
+import noimage from '../assets/images/image-not-found.png';
 
 export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
   const {motorbike: motorbikes} = useSelector (state => state);
@@ -120,7 +121,7 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
                 return(
                   <div key={String(data.id)} onClick={()=>goCarDetail(data.id)} style={{cursor: 'pointer'}} className='col-6 col-lg-3'>
                     <div className='position-relative mb-2'>
-                      <img className='img-fluid' src={data.image} alt={data.brand} />
+                      <img className='img-fluid' src={!data.image ? data.image : noimage} alt={data.brand} />
                       <div className='position-absolute bottom-0 start-0 bg-white px-3 py-2 motorcycle'>{data.brand}</div>
                     </div>
                   </div>

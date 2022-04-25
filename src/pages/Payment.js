@@ -8,6 +8,8 @@ import { getDetail } from '../redux/actions/detail';
 import NumberFormat from 'react-number-format';
 import { Link } from 'react-router-dom';
 import { getPayment } from '../redux/actions/payment';
+import noimage from '../assets/images/image-not-found.png';
+import { Navigate } from 'react-router-dom';
 
 export const Payment = ({getDetail}) => {
   const auth = useSelector(state => state.auth);
@@ -44,8 +46,7 @@ export const Payment = ({getDetail}) => {
 
   const onHistory = (e)=>{
     e.preventDefault();
-    const token = window.localStorage.getItem('token');
-    dispatch(getPayment(token, auth.userData.id, detail.detail.id, 'No'));
+    dispatch(getPayment(auth.token, auth.userData.id, detail.detail.id, 'No'));
     navigate('/history');
   };
 
@@ -54,7 +55,7 @@ export const Payment = ({getDetail}) => {
   };
   return (
     <Layout>
-      {/* {auth.token!==null && <Navigate to='/history' /> } */}
+      {auth.userData.role!=='Customer' && <Navigate to='/history' /> }
       <div className="payment">
         <div className="reserve">
           <div onClick={goBack} className="back-btn d-flex justify-content-start" style={{cursor: 'pointer'}}>
@@ -65,7 +66,7 @@ export const Payment = ({getDetail}) => {
         <div className="container-fluid g-0">
           <div className="row g-0 in">
             <div className="col info-img g-0">
-              <img src={detail.detail?.image} alt="Fixie" />
+              <img className='img-fluid' src={!detail.detail?.image ? detail.detail?.image : noimage} alt="Fixie" width="400" height="600" />
             </div>
             <div className="col info-pay g-0">
               <h1 className="text-1">{detail.detail?.brand} </h1>
@@ -122,7 +123,6 @@ export const Payment = ({getDetail}) => {
           <p className="time">59:30</p> 
         </button>
       </Link>
-      <Footer />
     </Layout>
   );
 };
