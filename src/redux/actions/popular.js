@@ -21,9 +21,9 @@ export const filterPopular = (brand, location, type, payment)=> {
   };
 };
 
-export const getPopularHistory = ()=> {
+export const getPopularHistory = (token)=> {
   return {
-    type: 'GET_POPULAR',
-    payload: http().get('/history/vehicles?limit=2') /*axios.get('http://localhost:8080/history/vehicles?limit=50')*/
+    type: 'HISTORY_POPULAR',
+    payload: http(token).get('/history/vehicles?limit=2') /*axios.get('http://localhost:8080/history/vehicles?limit=50')*/
   };
 };

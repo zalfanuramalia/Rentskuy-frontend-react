@@ -17,6 +17,6 @@ export const historyByUser = (id, token) => {
 export const deleteHistory = (id, token) => {
   return {
     type: 'DELETE_HISTORY',
-    payload: http(token).get(`/history/${id}`)
+    payload: http(token).delete(`/history/${id}`)
   };
 };
