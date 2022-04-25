@@ -26,7 +26,7 @@ export const Navbar = () => {
               <Link to='/VehicleType' className="nav-link">Vehicle Type</Link>
             </li>
             <li className="nav-item">
-              <Link to='/History' className="nav-link">History</Link>
+              <Link to='/history' className="nav-link">History</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/Home">About</a>
@@ -40,7 +40,7 @@ export const Navbar = () => {
                 <FaCircle color='#71543A' className='circle'/>
                 <p className='val'>1</p>
               </span>              
-              <Link to='/profil' className='profile-nav'><img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" /></Link> 
+              <Link to='/profil' className='profile-nav'><img src={auth.userData?.image ? auth.userData.image : people} alt="Profile-Picure" className="img-thumbnail rounded-circle" /></Link> 
             </div>
           </div>
         </div>
