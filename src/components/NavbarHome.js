@@ -33,7 +33,7 @@ export const NavbarHome = () => {
             </li>
           </ul>
           {auth.token!==null && <div className="toggled-action d-flex align-items-center">
-            <Link to='/profil' className='profile-nav'><img src={people} alt="Profile-Picure" className="img-thumbnail rounded-circle" /></Link>
+            <Link to='/profil' className='profile-nav'><img src={auth.userData?.image ? auth.userData.image : people} alt="Profile-Picure" className="img-thumbnail rounded-circle" /></Link>
             <div className='navbar-text users' >{auth.userData.email}</div>
             {auth.token===null && <Navigate to='/login' />}
             <button onClick={()=>dispatch({type: 'AUTH_LOGOUT'})} className='button-outline mx-5 my-4' style={{textDecoration:'none'}}><p className='mx-5 my-2'>Logout</p></button>
