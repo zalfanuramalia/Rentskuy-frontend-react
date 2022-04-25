@@ -82,7 +82,7 @@ export const Detail = ({getDetail}) => {
               <div className='col-md-6 col-12 d-flex justify-content-between two-image'>
                 <div className='left'>
                   <FaChevronLeft />
-                </div>             
+                </div>
                 <img className='img-fluid px-2' src={detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
                 <img className='img-fluid px-2' src={detail.detail?.image ? detail.detail?.image : noimage} alt='charImg' width='300' height='200' />
                 <div className='right'>
