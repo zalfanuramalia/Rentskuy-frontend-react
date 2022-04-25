@@ -13,3 +13,10 @@ export const historyByUser = (id, token) => {
     payload: http(token).get(`/history/users/${id}`)
   };
 };
+
+export const deleteHistory = (id, token) => {
+  return {
+    type: 'DELETE_HISTORY',
+    payload: http(token).delete(`/history/${id}`)
+  };
+};

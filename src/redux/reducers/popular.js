@@ -1,5 +1,6 @@
 const popularState = {
   popular: [],
+  popularHistory: [],
   pageInfo: {},
   isLoading: false,
   isError: false,
@@ -21,6 +22,26 @@ const popular = (state = popularState, action) => {
     return {...state};
   }
   case 'GET_POPULAR_REJECTED': {
+    const {message} = action.payload.response.data;
+    state.isLoading = false;
+    state.isError = true;
+    state.errorMsg = message;
+    return {...state};
+  }
+  case 'HISTORY_POPULAR_PENDING': {
+    state.isLoading = true;
+    state.isError = false;
+    return {...state};
+  }
+  case 'HISTORY_POPULAR_FULFILLED': {
+    const {data} = action.payload;
+    state.popularHistory = data.results;
+    state.pageInfo = data.info;
+    state.isLoading = false;
+    state.isError = false;
+    return {...state};
+  }
+  case 'HISTORY_POPULAR_REJECTED': {
     const {message} = action.payload.response.data;
     state.isLoading = false;
     state.isError = true;

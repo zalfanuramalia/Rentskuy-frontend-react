@@ -2,24 +2,44 @@ const profilState = {
   pageInfo: {},
   isLoading: false,
   isError: false,
+  profile: {},
+  updateProfile: {}
 };
 
 const profil = (state=profilState, action)=>{
   switch(action.type){
-  case 'UPDATE_PROFIL_PENDING': {
+  case 'GET_PROFILE_PENDING': {
     state.isLoading = true;
     state.isError = false;
     return {...state};
   }
-  case 'UPDATE_PROFIL_FULFILLED': {
+  case 'GET_PROFILE_FULFILLED': {
     const {data} = action.payload;
     console.log(data);
-    state.detail = data.results;
+    state.profile = data.results;
     state.pageInfo = data.info;
     state.isLoading = false;
     return {...state};
   }
-  case 'UPDATE_PROFIL_REJECTED': {
+  case 'GET_PROFILE_REJECTED': {
+    state.isLoading = false;
+    state.isError = true;
+    return {...state};
+  }
+  case 'UPDATE_PROFILE_PENDING': {
+    state.isLoading = true;
+    state.isError = false;
+    return {...state};
+  }
+  case 'UPDATE_PROFILE_FULFILLED': {
+    const {data} = action.payload;
+    console.log(data);
+    state.updateProfile = data.results;
+    state.pageInfo = data.info;
+    state.isLoading = false;
+    return {...state};
+  }
+  case 'UPDATE_PROFILE_REJECTED': {
     state.isLoading = false;
     state.isError = true;
     return {...state};

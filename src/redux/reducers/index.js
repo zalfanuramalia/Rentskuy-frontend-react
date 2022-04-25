@@ -12,6 +12,7 @@ import popular from './popular';
 import car from './car';
 import motorbike from './motorbike';
 import bike from './bike';
+import profil from './profil';
 
 const persistAuth = {
   key: 'auth',
@@ -38,10 +39,10 @@ const persistPayment = {
   storage,
 };
 
-const persistHistory = {
-  key: 'history',
-  storage,
-};
+// const persistHistory = {
+//   key: 'history',
+//   storage,
+// };
 
 const persistPopular = {
   key: 'popular',
@@ -63,22 +64,28 @@ const persistBike = {
   storage,
 };
 
+const persistProfile = {
+  key: 'profil',
+  storage,
+};
+
 const rootReducer = combineReducers ({ 
   auth: persistReducer(persistAuth, auth),
   buttons: persistReducer(persistButton, buttons),
   detail: persistReducer(persistDetail, detail),
   register: persistReducer(persistRegister, register),
   payment: persistReducer(persistPayment, payment),
-  history: persistReducer(persistHistory, history),
+  // history: persistReducer(persistHistory, history),
   popular: persistReducer(persistPopular, popular),
   car: persistReducer(persistCar, car),
   motorbike: persistReducer(persistMotorbike, motorbike),
   bike: persistReducer(persistBike, bike),
+  profil: persistReducer(persistProfile, profil),
   // buttons,
   // detail,
   // register,
   // payment,
-  // history,
+  history,
   // popular,
   // car,
   // motorbike,
