@@ -19,7 +19,7 @@ npm i
 
 # Rentskuy
 
-Contains an Application Programming Interface (API) using Visual Studio Code applications, Node.js as a platform, and express.js as a framework from Node.js, as well as Postman as a container for testing the API that has been created.
+Contains the Application Programming Interface (API) using Visual Studio Code applications, Node.js as a platform, and express.js as a framework from Node.js, as well as Postman as a container to test the APIs that have been created. To build a frontend application using the framework from React.js and redux-persist, and Chrome as a container to test the appearance of the application
 
 # Built with
 
