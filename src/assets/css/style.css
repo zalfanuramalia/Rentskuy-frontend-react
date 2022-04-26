@@ -45,16 +45,54 @@ body {
   text-align: center;
 }
 
+/* style.css add-vehicles.html */
+
+.preview img.add {
+  object-fit: cover;
+}
+
+.preview .img-add {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.price-add {
+  background: #F5F5F6;
+}
+
+.category-add {
+  border-color: #C2A78B;
+}
+
+.button-chat {
+  margin-top: 70px;
+  height: 70px;
+  border-radius: 10px;
+  background-color: #70553B;
+  border-color: #C2A78B;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+}
+
+.submit-button {
+  margin-top: 70px;
+  height: 70px;
+  border-radius: 10px;
+  background-color: #C2A78B;
+  border-color: #C2A78B;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+}
+
 /* style.css detail.html */
 
 .back {
-  width: 43px;
-  height: 28px;
   margin-top: 50px;
 }
 
 .back p {
-  margin-left: 10px;
   font-weight: bold;
   font-size: 24px;
   line-height: 24px;
@@ -129,16 +167,7 @@ body {
   line-height: 25px;
 }
 
-.button-chat {
-  margin-top: 70px;
-  height: 70px;
-  border-radius: 10px;
-  background-color: #70553B;
-  border-color: #C2A78B;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 25px;
-}
+
 
 .detail-vehicle .button .button-chat p {
   margin-top: 17px;

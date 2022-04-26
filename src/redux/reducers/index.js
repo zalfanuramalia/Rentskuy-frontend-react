@@ -13,6 +13,7 @@ import car from './car';
 import motorbike from './motorbike';
 import bike from './bike';
 import profil from './profil';
+import vehicles from './vehicles';
 
 const persistAuth = {
   key: 'auth',
@@ -69,6 +70,11 @@ const persistProfile = {
   storage,
 };
 
+const persistVehicles = {
+  key: 'vehicles',
+  storage,
+};
+
 const rootReducer = combineReducers ({ 
   auth: persistReducer(persistAuth, auth),
   buttons: persistReducer(persistButton, buttons),
@@ -81,6 +87,7 @@ const rootReducer = combineReducers ({
   motorbike: persistReducer(persistMotorbike, motorbike),
   bike: persistReducer(persistBike, bike),
   profil: persistReducer(persistProfile, profil),
+  vehicles: persistReducer(persistVehicles, vehicles),
   // buttons,
   // detail,
   // register,
