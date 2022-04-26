@@ -9,6 +9,7 @@ const AddVehicles = () => {
   const {auth} = useSelector(state=>state);
   const [file, setFile] = useState({});
   const hiddenFileInput = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -31,7 +32,6 @@ const AddVehicles = () => {
   const uploadFile = (e) => {
     e.preventDefault();
     hiddenFileInput.current.click();
-    // document.getElementById('fileUpload').click();
   };
 
   const addVehiclesHandler = (e)=>{
@@ -45,6 +45,7 @@ const AddVehicles = () => {
     const image = file.image;
     const data = {brand, location, description, price, qty, category_id, image};
     dispatch(addItemVehicles(auth.token, data));
+    setIsOpen(true);
     window.scrollTo(0, 0);
   };
 
@@ -63,13 +64,12 @@ const AddVehicles = () => {
           <div className='row'>
             <div className='col-6'>
               <div className='img-add d-flex flex-column justify-content-center align-items-center h-75'>
-                <img className='img-fluid add' src={camera || image} alt="vehicles" />
+                <img id='profile-image' className='img-fluid add' src={camera || image} alt="vehicles" />
                 <p className='mt-2' onClick={(e)=>uploadFile(e)} style={{cursor: 'pointer'}}>Click to add image</p>
               </div>
               <input type="file"
                 ref={hiddenFileInput}
                 className='d-none'
-                // id='fileUpload'
                 name='image'
                 accept='image'
                 onChange={(e) => fileInputHandler(e)}
@@ -117,8 +117,27 @@ const AddVehicles = () => {
                 </select>
               </div>
               <div className='col-6 mt-5'>
-                <button className="submit-button btn btn-primary w-100" onClick={addVehiclesHandler}> <p className='mt-3'>Save Item</p></button>
-                
+                <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" className="submit-button btn btn-primary w-100" onClick={addVehiclesHandler}>
+                  <p className='mt-3'>Save Item</p>
+                </button>
+                {isOpen && 
+                  <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">Add item confirmation</h5>
+                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <p>You have added a new item!</p>
+                        </div>
+                        <div className="modal-footer">
+                          <button className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => setIsOpen(false)}>Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                }
               </div>
             </div>
           </div>
