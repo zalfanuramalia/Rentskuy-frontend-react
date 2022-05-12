@@ -10,6 +10,6 @@ export const getMotorbike = ()=> {
 export const filterMotorbike = (brand, location, payment)=> {
   return {
     type: 'FILTER_MOTORBIKE',
-    payload: http().get(`/vehicles/category/2?brand=${brand}&location=${location}&payment=${payment}&limit=50`)
+    payload: http().get(`/vehicles/category/2?search=${brand}&location=${location}&payment=${payment}&limit=50`)
   };
 };

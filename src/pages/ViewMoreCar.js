@@ -24,10 +24,10 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
     const payment = searchParams.get('payment');
     
     if(brand || location ||  payment){
-      const url1 = (brand)=> `https://rentskuy.herokuapp.com/search/1?brand=${brand}&location=${location}&payment=${payment}`;
+      const url1 = (brand)=> `https://rentskuy.herokuapp.com/vehicles/category/1?search=${brand}&location=${location}&payment=${payment}`;
       document.getElementById('search').elements['search'].value = brand;
-      document.getElementById('search').elements['search'].value = location;
-      document.getElementById('search').elements['search'].value = payment;
+      document.getElementById('location').elements['location'].value = location;
+      document.getElementById('payment').elements['payment'].value = payment;
       getToData(url1(brand, location, payment), true);
     }else{
       getCar();
@@ -47,7 +47,7 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
           ...data.results
         ]);
       }
-      setPages(data.info);
+      setPages(data.pageInfo);
     }catch(e){
       if(e.message.includes('404')){
         setErrorMsg('Data not found!');
@@ -116,7 +116,7 @@ export const ViewMoreCar = ({getCar, filterCar}) => {
           </div>
           <div className="image container">
             {cars.isLoading &&
-          <Skeleton height={150} containerClassName='row' count={8} wrapper={({children})=>(<div className='col-md-3'>{children}</div>)} />
+              <Skeleton height={150} containerClassName='row' count={8} wrapper={({children})=>(<div className='col-md-3'>{children}</div>)} />
             }
             {!cars.isLoading && <div className="row">
               {cars.car.map((data, idx)=>{
