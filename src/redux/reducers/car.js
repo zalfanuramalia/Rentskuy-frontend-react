@@ -15,7 +15,7 @@ const car = (state=carState, action)=> {
   case 'GET_CAR_FULFILLED': {
     const {data} = action.payload;
     state.car = data.results;
-    state.pageInfo = data.info;
+    state.pageInfo = data.pageInfo;
     state.isLoading = false;
     state.isError = false;
     return {...state};

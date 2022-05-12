@@ -24,7 +24,7 @@ export const ViewMoreMotorbike = ({getMotorbike, filterMotorbike}) => {
     const payment = searchParams.get('payment');
     
     if(brand || location || payment){
-      const url1 = (brand)=> `https://rentskuy.herokuapp.com/search/2?brand=${brand}&location=${location}&payment=${payment}`;
+      const url1 = (brand)=> `https://rentskuy.herokuapp.com/vehicles/category/2?search=${brand}&location=${location}&payment=${payment}`;
       document.getElementById('search').elements['search'].value = brand;
       document.getElementById('search').elements['search'].value = location;
       document.getElementById('search').elements['search'].value = payment;
