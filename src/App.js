@@ -10,6 +10,7 @@ import Reservation from './pages/Reservation';
 import Payment from './pages/Payment';
 import Profil from './pages/Profil';
 import ForgotPassword from './pages/ForgotPassword';
+import ChangesPass from './pages/ChangesPass';
 import Register from './pages/Register';
 import ViewMoreCar from './pages/ViewMoreCar';
 import ViewMoreMotorbike from './pages/ViewMoreMotorbike';
@@ -56,6 +57,7 @@ const App = () => {
         <Route path='reservation/:id' element={<Reservation />} />
         <Route path='payment/:id' element={<Payment />} />
         <Route path='forgotPassword' element={<ForgotPassword />} />
+        <Route path='changePassword' element={<ChangesPass />} />
         <Route path='viewMoreCar' element={<ViewMoreCar />} />
         <Route path='viewMoreMotorbike' element={<ViewMoreMotorbike />} />
         <Route path='history' element={<History />} />

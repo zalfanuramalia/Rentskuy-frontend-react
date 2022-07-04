@@ -13,7 +13,7 @@ export const ForgotPassword = () => {
     e.preventDefault();
     const email = e.target.elements['email'].value;
     dispatch(forgotpass(email));
-    navigate('/changePass');
+    navigate('/changePassword');
   };
 
   return (
